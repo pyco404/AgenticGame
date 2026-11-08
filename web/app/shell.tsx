@@ -595,7 +595,7 @@ function PersistentWorld({
                 ? "Opening..."
                 : stranded
                   ? "Can't reach the game server, so no agents yet. Retrying…"
-                  : "Following your autonomous agent"}
+                  : observing ? "Following your autonomous agent" : "AGG contract address coming soon."}
           </p>
         )}
         </div>
