@@ -4,6 +4,7 @@ import { AGP_LINKS, AGP_MINT } from "@/lib/agp";
 
 /** AGG's contract address, copyable, with where to trade and verify it. */
 export function AgpCard() {
+  if (!AGP_MINT) return <p className="hud-card px-4 py-3 text-[13px] text-muted">AGG contract address coming soon.</p>;
   return (
     <section className="hud-card px-4 py-3 text-[13px] leading-5" aria-label="AGG contract address">
       <p className="text-[12px] uppercase tracking-wider text-accent">AGG is live</p>

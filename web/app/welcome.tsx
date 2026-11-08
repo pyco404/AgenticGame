@@ -80,8 +80,10 @@ export function Welcome({ ready, drawn, failed, onEnter }: {
       {process.env.NEXT_PUBLIC_LAUNCHPAD === "1" ? <button type="button" onClick={() => enter("/launch")} className="mt-4 py-1 font-mono text-[10px] tracking-widest text-[#b8c7af] hover:text-[#63dc8b]">+ LAUNCH A TOKEN</button> : null}
       <p className="mt-4 text-[10px] text-[#88a58b]">{failed ? "World unavailable. You can still open the site." : ready && !drawn ? "World still loading. You can enter while it reconnects." : "Your agent explores. You observe."}</p>
       <div className="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 border-t border-[#344b3c] pt-3 text-[10px] text-[#88a58b]">
-        <span><span className="text-[#63dc8b]">AGG</span> - <span className="break-all font-mono text-[#d8e2d0]">{AGP_MINT}</span></span>
-        <CopyButton value={AGP_MINT} label="Copy" className="border border-[#41624c] px-2 py-0.5 font-mono text-[10px] tracking-wider text-[#63dc8b] hover:border-[#63dc8b]" />
+        {AGP_MINT ? <>
+          <span><span className="text-[#63dc8b]">AGG</span> - <span className="break-all font-mono text-[#d8e2d0]">{AGP_MINT}</span></span>
+          <CopyButton value={AGP_MINT} label="Copy" className="border border-[#41624c] px-2 py-0.5 font-mono text-[10px] tracking-wider text-[#63dc8b] hover:border-[#63dc8b]" />
+        </> : <span>AGG contract address coming soon.</span>}
       </div>
     </div>
   </div>;

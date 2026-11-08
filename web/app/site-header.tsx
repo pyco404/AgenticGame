@@ -39,12 +39,12 @@ export function SiteFooter() {
   return (
     <footer
       className="rounded-panel flex h-8 items-center border border-hud-line bg-hud px-2.5 text-[12px] text-muted"
-      title={`Agentic Games runs on Solana mainnet. AGG is live: ${AGP_MINT}`}
+      title={AGP_MINT ? `Agentic Games runs on Solana mainnet. AGG contract: ${AGP_MINT}` : "Agentic Games on Solana. AGG contract address coming soon."}
     >
       <p className="flex flex-wrap items-center justify-end gap-x-3">
         <span>Solana</span>
-        <a href={AGP_LINKS.pump} className={link} target="_blank" rel="noreferrer">AGG</a>
-        <a href={siteLinks.x} className={link} target="_blank" rel="noreferrer">X</a>
+        {AGP_MINT ? <a href={AGP_LINKS.pump} className={link} target="_blank" rel="noreferrer">AGG</a> : <span>AGG coming soon</span>}
+        {siteLinks.x ? <a href={siteLinks.x} className={link} target="_blank" rel="noreferrer">X</a> : null}
         <a href={siteLinks.repository} className={link} target="_blank" rel="noreferrer">Source</a>
         <a href={siteLinks.repository} className={link} target="_blank" rel="noreferrer">Security</a>
       </p>

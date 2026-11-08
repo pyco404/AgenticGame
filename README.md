@@ -90,6 +90,32 @@ scripts/deploy.sh api
 scripts/deploy.sh web
 ```
 
+For a fresh Agentic Games deployment, create a separate Railway project with
+a new Postgres database, an `api` service rooted at `/`, and a `web` service
+rooted at `/web`. Export `RAILWAY_PROJECT_ID` with the new project's ID before
+running the deployment script; it requires an explicit target. Set the API's
+`DATABASE_URL` to the new Postgres service. Set `NEXT_PUBLIC_API_URL`,
+`NEXT_PUBLIC_SITE_URL`, `AUTH_DOMAIN`, and `CORS_ORIGIN` to the new deployment's
+addresses. Configure the AGG mint and wallets explicitly for the new project.
+
+The fresh Agentic Games project is `1a221ebf-b899-489d-801c-74b029c40d82`.
+Its web address is `https://web-production-944c2.up.railway.app` and its API
+address is `https://api-production-13f9.up.railway.app`. It uses a separate
+Postgres database. Launches and payout execution are disabled until the new
+token and receiving wallets are configured; an unset `NEXT_PUBLIC_AGP_MINT`
+shows an address-coming-soon message instead of using the previous token.
+
+```bash
+export RAILWAY_PROJECT_ID=1a221ebf-b899-489d-801c-74b029c40d82
+export NEXT_PUBLIC_SITE_URL=https://web-production-944c2.up.railway.app
+```
+
+New Railway services use their service settings for the build and start
+commands. The `web` service uses root `/web`, build `npm run build`, start
+`npm run start`, and health check `/`. The `api` service uses root `/`, start
+`npm start`, and health check `/ladder`. The legacy `railway.json` files are
+retained for existing deployments.
+
 `railway up` uploads the *working tree*, not the commit, so deploying by hand
 can put code live that is in nobody's git history — which has happened here,
 with two sessions editing one checkout. The script closes that: the api refuses

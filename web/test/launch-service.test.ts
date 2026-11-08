@@ -204,7 +204,8 @@ describe("Launch service (RPC and IPFS stubbed; no transactions sent)", () => {
     const at = (origin: string | null, headers: Record<string, string> = {}) =>
       fromThisSite(new Request("http://localhost:8080/api/launchpad/prepare", { method: "POST", headers: { ...(origin ? { origin } : {}), ...headers } }));
     expect(at("https://trygamine.xyz", { "x-forwarded-host": "trygamine.xyz", "x-forwarded-proto": "https" })).toBe(true);
-    expect(at("https://trygamine.xyz")).toBe(true);
+    expect(at("https://agentic-games.example")).toBe(true);
+    expect(at("https://trygamine.xyz")).toBe(false);
     expect(at("http://localhost:8080")).toBe(true);
     expect(at("https://evil.example", { "x-forwarded-host": "trygamine.xyz", "x-forwarded-proto": "https" })).toBe(false);
     expect(at(null)).toBe(false);

@@ -22,7 +22,11 @@ case "$SERVICE" in
   *) echo "usage: scripts/deploy.sh api|web [environment]"; exit 1 ;;
 esac
 
-PROJECT=261f704c-bcc2-4c12-a01b-5a075a08c085
+PROJECT="${RAILWAY_PROJECT_ID:-}"
+if [ -z "$PROJECT" ]; then
+  echo "Set RAILWAY_PROJECT_ID to the Agentic Games project ID before deploying."
+  exit 1
+fi
 ENVIRONMENT="${2:-production}"
 # Production's services are api and web. Another environment has services of
 # its own, named for it (rehearsal-api, rehearsal-web): Railway gives an
@@ -97,7 +101,9 @@ git archive HEAD web | tar -x -C "$STAGE"
 # being something you have to trust this script about.
 printf '%s\n' "$HEAD_SHA" > "$STAGE/web/public/commit.txt"
 echo "staged   $(find "$STAGE/web" -type f | wc -l) files from $HEAD_SHA"
-[ "$ENVIRONMENT" = "production" ] && echo "check    curl https://trygamine.xyz/commit.txt"
+if [ -n "${NEXT_PUBLIC_SITE_URL:-}" ]; then
+  echo "check    curl ${NEXT_PUBLIC_SITE_URL%/}/commit.txt"
+fi
 
 # Production's web service has its Root Directory set to /web, so it is sent
 # the directory holding web/. A service in another environment has no such
