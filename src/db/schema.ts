@@ -71,7 +71,7 @@ export const agents = pgTable(
      * mint - so this is written when it is rented and never again.
      *
      * "holder" has no vault and no ledger: the agent is its owner's wallet
-     * holding $GAMINE above the minimum (docs/holder-agents.md), read into
+     * holding AGG above the minimum (docs/holder-agents.md), read into
      * `holdings`. Nothing is rented, so a holder agent has no rental end.
      */
     funding: text("funding").$type<Funding>().notNull().default("seed"),
@@ -90,7 +90,7 @@ export const agents = pgTable(
     trueRatingRoster: text("true_rating_roster"),
     /** The owner's wallet: a base58 Solana public key. */
     ownerId: text("owner_id"),
-    /** Empty means the configured primary token (legacy $GAMINE/devnet agents). */
+    /** Empty means the configured primary token (legacy AGG/devnet agents). */
     holderMint: text("holder_mint").notNull().default(""),
     /**
      * Autoplay: the server plays this agent on a timer, with nothing to press
@@ -341,7 +341,7 @@ export const seasons = pgTable("seasons", {
   status: text("status").$type<"open" | "closed">().notNull().default("open"),
   closedAt: timestamp("closed_at", { withTimezone: true }),
   /**
-   * $GAMINE base units per chip for this season. Null on devnet, where there is
+   * AGG base units per chip for this season. Null on devnet, where there is
    * no rate; on mainnet the boundary sets it (see onSeasonBoundary).
    */
   chipRate: bigint("chip_rate", { mode: "number" }),
@@ -797,7 +797,7 @@ export const ratings = pgTable("ratings", {
 export const RATING_WINDOW = 50;
 
 /**
- * The least an agent must hold to be in play, in chips: $20 of $GAMINE at the
+ * The least an agent must hold to be in play, in chips: $20 of AGG at the
  * peg of 900 chips to $5 (docs/economy.md, the chip rate). Nothing is staked,
  * so it is never spent (docs/no-loss-rewards.md): it is what a rental must be
  * funded with, what a withdrawal must leave to keep playing, and the $20 the

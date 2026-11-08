@@ -24,10 +24,10 @@ try {
   return r.continue();
  });
  await page.goto(`${base}/?debugWorldPerf=1`, { waitUntil:'domcontentloaded', timeout:90000 });
- await page.locator('canvas[aria-label^="Explore the Gamine"]').waitFor({timeout:60000});
+ await page.locator('canvas[aria-label^="Explore the Agentic Games"]').waitFor({timeout:60000});
  const enter = page.getByRole('button',{name:/enter world/i}); if(await enter.count()) await enter.click();
  await page.evaluate(() => {
-  const el = document.querySelector('canvas[aria-label^="Explore the Gamine"]'); let f = el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];
+  const el = document.querySelector('canvas[aria-label^="Explore the Agentic Games"]'); let f = el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];
   while(f && !f.memoizedProps?.village?.current) f=f.return;
   window.__edgeHandle=f.memoizedProps.village.current;
  });

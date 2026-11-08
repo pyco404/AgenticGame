@@ -29,12 +29,12 @@ try {
   return route.continue();
  });
  await page.goto(`${base}/?debugAgents=1`,{waitUntil:'domcontentloaded',timeout:90000});
- const canvas=page.locator('canvas[aria-label^="Explore the Gamine"]');await canvas.waitFor({timeout:60000});
+ const canvas=page.locator('canvas[aria-label^="Explore the Agentic Games"]');await canvas.waitFor({timeout:60000});
  const enter=page.getByRole('button',{name:/enter world/i});if(await enter.count()) await enter.click();
  await page.waitForFunction(()=>window.__agentRenderDebug?.total===100,undefined,{timeout:60000});
  await page.addScriptTag({path:helper});await page.waitForTimeout(2000);
  await page.evaluate(()=>{
-  const el=document.querySelector('canvas[aria-label^="Explore the Gamine"]');let f=el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];while(f&&!f.memoizedProps?.village?.current) f=f.return;
+  const el=document.querySelector('canvas[aria-label^="Explore the Agentic Games"]');let f=el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];while(f&&!f.memoizedProps?.village?.current) f=f.return;
   window.__objectHandle=f.memoizedProps.village.current;window.__originalCanvas=el;
  });
  await page.screenshot({path:`${out}/town-front.png`});

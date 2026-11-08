@@ -31,7 +31,7 @@ function agpMint() {
   try { return new PublicKey(process.env.PAYOUT_AGP_MINT).toBase58(); }
   catch { throw new LaunchError("The payout mint is not configured correctly.", 503); }
 }
-/** The shared agent reward wallet's SOL and $GAMINE, for choosing an amount (reward-wallets.ts reads them at most every 30 seconds). */
+/** The shared agent reward wallet's SOL and AGG, for choosing an amount (reward-wallets.ts reads them at most every 30 seconds). */
 async function rewardBalances() {
   const wallets = await rewardWallets();
   const one = (w: RewardWallet) => w.sol === null ? null : { sol: w.sol, agp: w.agp };
@@ -60,7 +60,7 @@ async function handle(request: Request, context: { params: Promise<{ path: strin
     else if (request.method === "POST" && path.join("/") === "preview") {
       if (!feeWalletsReady()) throw new LaunchError("Configure the platform and shared agent reward wallets before planning payouts.", 503);
       const body = await readLaunchBody(request);
-      // "held" pays $GAMINE the operator already bought into the reward wallet; otherwise SOL is swapped.
+      // "held" pays AGG the operator already bought into the reward wallet; otherwise SOL is swapped.
       const held = body.funding === "held";
       if ((body.kind !== "daily" && body.kind !== "weekly") || typeof body.period !== "string" ||
         !/^\d{4}-\d{2}-\d{2}$/.test(body.period) ||
@@ -100,7 +100,7 @@ async function handle(request: Request, context: { params: Promise<{ path: strin
       let decimals = 0;
       if (held) {
         try { decimals = await agpDecimals(); }
-        catch { throw new LaunchError("The $GAMINE mint could not be read. Check PUMP_RPC_URL and PAYOUT_AGP_MINT.", 503); }
+        catch { throw new LaunchError("The AGG mint could not be read. Check PUMP_RPC_URL and PAYOUT_AGP_MINT.", 503); }
       }
       let plan;
       try {
@@ -122,7 +122,7 @@ async function handle(request: Request, context: { params: Promise<{ path: strin
     } else if (request.method === "POST" && path.length === 2 && path[1] === "approve") {
       const plan = store.get(path[0]!);
       if (!plan) throw new LaunchError("Payout plan not found.", 404);
-      if (!plan.agpMint || plan.agpMint !== agpMint()) throw new LaunchError("Configure the $GAMINE mint and preview again before approving this plan.", 409);
+      if (!plan.agpMint || plan.agpMint !== agpMint()) throw new LaunchError("Configure the AGG mint and preview again before approving this plan.", 409);
       try { result = store.approve(plan.id, owner); }
       catch (error) { throw new LaunchError((error as Error).message, 409); }
     } else if (request.method === "POST" && path.length === 2 && ["start", "prepare", "submit", "pause", "resume"].includes(path[1]!)) {
@@ -131,7 +131,7 @@ async function handle(request: Request, context: { params: Promise<{ path: strin
       const target = store.get(id);
       if (!target) throw new LaunchError("Payout plan not found.", 404);
       if (target.funding !== "held" && !executionConfig().swaps && (action === "start" || action === "prepare"))
-        throw new LaunchError("This plan swaps SOL, which needs JUPITER_API_KEY. Buy $GAMINE into the reward wallet and preview a held-$GAMINE payout instead.", 503);
+        throw new LaunchError("This plan swaps SOL, which needs JUPITER_API_KEY. Buy AGG into the reward wallet and preview a held-AGG payout instead.", 503);
       try {
         if (action === "start") result = await startExecution(id, owner, undefined, executions);
         else if (action === "pause" || action === "resume") result = executions.control(id, action);

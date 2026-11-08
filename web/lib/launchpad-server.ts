@@ -132,14 +132,14 @@ async function uploadMetadata(form: LaunchForm) {
 /** An optional pre-generated random mint for the official wallet; no vanity suffix. */
 async function mintForLaunch(form: LaunchForm, connection: Connection): Promise<Keypair> {
   const launcher = process.env.GAMINE_LAUNCHER_WALLET?.trim();
-  if (form.ticker !== "GAMINE" || !launcher || form.creator !== launcher) return Keypair.generate();
+  if (form.ticker !== "AGG" || !launcher || form.creator !== launcher) return Keypair.generate();
   const secret = process.env.GAMINE_LAUNCH_MINT_SECRET;
-  if (!secret) throw new LaunchError("The reserved Gamine mint is not configured correctly.", 503);
+  if (!secret) throw new LaunchError("The reserved Agentic Games mint is not configured correctly.", 503);
   let mint: Keypair;
   try {
     new PublicKey(launcher);
     mint = Keypair.fromSecretKey(Uint8Array.from(JSON.parse(secret)));
-  } catch { throw new LaunchError("The reserved Gamine mint is not configured correctly.", 503); }
+  } catch { throw new LaunchError("The reserved Agentic Games mint is not configured correctly.", 503); }
   const address = mint.publicKey;
   // Never reuse a live mint or replace a transaction that may still land.
   const existing = launchStore().getMint(address.toBase58());
@@ -147,11 +147,11 @@ async function mintForLaunch(form: LaunchForm, connection: Connection): Promise<
     const expired = !existing.confirmed
       && await connection.getBlockHeight("finalized") > existing.lastValidBlockHeight;
     if (!expired || await connection.getAccountInfo(address, "finalized")) {
-      throw new LaunchError("This Gamine mint already has a launch. Resume or check that launch.", 409);
+      throw new LaunchError("This Agentic Games mint already has a launch. Resume or check that launch.", 409);
     }
     launchStore().release(existing.id);
   } else if (await connection.getAccountInfo(address, "finalized")) {
-    throw new LaunchError("This Gamine mint already exists on chain.", 409);
+    throw new LaunchError("This Agentic Games mint already exists on chain.", 409);
   }
   return mint;
 }
@@ -283,6 +283,6 @@ export async function getPumpToken(mint: string): Promise<TokenDetail | null> {
   try {
     if (!sharing?.owner.equals(pump.PUMP_FEE_PROGRAM_ID)) throw new Error();
     verifyFeeSharing(pump.PUMP_SDK.decodeSharingConfig(sharing), new PublicKey(mint));
-  } catch { token.verification = "removed"; token.removedReason = "The locked creator fee configuration no longer matches Gamine."; }
+  } catch { token.verification = "removed"; token.removedReason = "The locked creator fee configuration no longer matches Agentic Games."; }
   return token;
 }

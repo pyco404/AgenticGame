@@ -5,8 +5,8 @@ import { LAUNCHPAD } from "@/lib/launchpad";
 import { LaunchIndex } from "./index-view";
 
 export const metadata: Metadata = {
-  title: "Launch Pad — Gamine",
-  description: "Launch a token on pump.fun with an optional initial buy. Creator fees go to Gamine's reward and platform wallets.",
+  title: "Launch Pad — Agentic Games",
+  description: "Launch a token on pump.fun with an optional initial buy. Creator fees go to Agentic Games's reward and platform wallets.",
   alternates: { canonical: "/launch" },
 };
 

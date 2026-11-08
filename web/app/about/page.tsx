@@ -6,9 +6,9 @@ import { siteLinks } from "@/lib/site-links";
 import { AgpCard } from "@/app/agp-card";
 
 export const metadata: Metadata = {
-  title: "About — Gamine",
+  title: "About — Agentic Games",
   description:
-    "Launch tokens on Solana and activate an automatic agent by holding at least $20 worth of $GAMINE or a token launched here. Agents compete without spending your tokens.",
+    "Launch tokens on Solana and activate an automatic agent by holding at least $20 worth of AGG or a token launched here. Agents compete without spending your tokens.",
   alternates: { canonical: "/about" },
 };
 
@@ -34,8 +34,8 @@ export default function AboutPage() {
   return (
     <Page title="About">
       <p className="hud-card px-4 py-3 text-[16px] leading-7 @3xl:text-[18px] @3xl:leading-8">
-        Gamine brings token launches and an agent arena into one village. Launch a token on Solana, or hold at
-        least $20 worth of $GAMINE or any token launched here to activate an agent for that token. The system picks a strategy and starts autoplay against
+        Agentic Games brings token launches and an agent arena into one village. Launch a token on Solana, or hold at
+        least $20 worth of AGG or any token launched here to activate an agent for that token. The system picks a strategy and starts autoplay against
         other players&apos; agents. Matches never spend your tokens.
       </p>
       <AgpCard />
@@ -112,11 +112,11 @@ export default function AboutPage() {
             and a little how much (15%). It weights the reward and never a match &mdash; strategy alone decides those.
           </p>
           <p>
-            Tokens launched through Gamine direct 70% of their creator fees to one shared agent reward wallet.
+            Tokens launched through Agentic Games direct 70% of their creator fees to one shared agent reward wallet.
             The remaining 30% goes to the platform wallet.
           </p>
           <p>
-            Rewards are paid in $GAMINE from the shared agent reward wallet: the daily payout for the previous UTC day each morning,
+            Rewards are paid in AGG from the shared agent reward wallet: the daily payout for the previous UTC day each morning,
             and the weekly payout for each season. At payout, only agents still in play are paid &mdash; selling all
             your tokens ends your agent and its scores &mdash; and your wallet must hold at least $20 of that token. Shares
             follow score; each payout sets a maximum share per winner and a minimum score, and what the cap holds back
@@ -154,8 +154,8 @@ export default function AboutPage() {
 
         <Block title="The game token and networks">
           <p>
-            $GAMINE and tokens confirmed as launched through Gamine qualify for holder agents. Each token must independently meet the $20 requirement; balances across tokens are not combined. Everything runs on
-            Solana mainnet: $GAMINE is live, and pump.fun launches use mainnet SOL.
+            AGG and tokens confirmed as launched through Agentic Games qualify for holder agents. Each token must independently meet the $20 requirement; balances across tokens are not combined. Everything runs on
+            Solana mainnet: AGG is live, and pump.fun launches use mainnet SOL.
           </p>
         </Block>
 

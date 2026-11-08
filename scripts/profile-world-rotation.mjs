@@ -27,12 +27,12 @@ try {
    return route.continue();
   });
   await page.goto(`${base}/?debugWorldPerf=1`,{waitUntil:'domcontentloaded',timeout:90000});
-  const canvas=page.locator('canvas[aria-label^="Explore the Gamine"]');await canvas.waitFor({timeout:60000});
+  const canvas=page.locator('canvas[aria-label^="Explore the Agentic Games"]');await canvas.waitFor({timeout:60000});
   const enter=page.getByRole('button',{name:/enter world/i});if(await enter.count())await enter.click();
   await page.waitForFunction(n=>window.__worldRenderPerf?.totals.activeAgents>=n,count,{timeout:60000});
   await page.addScriptTag({path:helper});
   fields=await page.evaluate(fields=>{
-   const el=document.querySelector('canvas[aria-label^="Explore the Gamine"]');let f=el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];while(f&&!f.memoizedProps?.village?.current)f=f.return;
+   const el=document.querySelector('canvas[aria-label^="Explore the Agentic Games"]');let f=el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];while(f&&!f.memoizedProps?.village?.current)f=f.return;
    const h=f.memoizedProps.village.current;window.__perfHandle=h;window.__perfCanvas=el;
    const roads=h.snapshot().world.map.paths.filter(p=>p.points.length>=3),now=Date.now(),received=performance.now();
    const moving=fields.map((a,i)=>{

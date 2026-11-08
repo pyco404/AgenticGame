@@ -2,7 +2,7 @@
 
 **Replaced 2026-10-02 by [holder-agents.md](holder-agents.md).** With no deposits, vaults or on-chain program, most of what this page protects is gone: the vaults, the settler key, the program's caps and the exit. It is kept for the reasoning and the record of what was measured and closed. What still needs securing under holder agents - the reward wallets' keys and the key that signs payouts - is in [economy.md](economy.md#roadmap).
 
-Gamine is a devnet demo with fake currency. This document says what it protects, how, and where it stops. Nothing here has been audited.
+Agentic Games is a devnet demo with fake currency. This document says what it protects, how, and where it stops. Nothing here has been audited.
 
 ## What is at stake
 
@@ -23,7 +23,7 @@ Game tokens in per-agent vaults on Solana devnet, and the accuracy of the off-ch
 `src/auth/wallet.ts`, `src/http/server.ts`.
 
 - **Challenge.** `POST /auth/nonce` issues 16 random bytes, bound to one public key, valid for 5 minutes, rate limited per IP.
-- **Message.** The wallet signs plain text naming the site ("*domain* wants you to sign in with your Solana account"), so a signature made for Gamine cannot be replayed on another site. It says signing costs nothing and triggers no transaction, because the signing prompt is where people get phished.
+- **Message.** The wallet signs plain text naming the site ("*domain* wants you to sign in with your Solana account"), so a signature made for Agentic Games cannot be replayed on another site. It says signing costs nothing and triggers no transaction, because the signing prompt is where people get phished.
 - **Verification.** The server rebuilds the exact message it issued and checks the ed25519 signature. It never trusts message text sent back by the client.
 - **Replay.** A nonce is burnt with a conditional update, so two concurrent verifications of one signature cannot both open a session. Tested: a wrong-key signature, a replayed nonce, a nonce issued to another key, a tampered message and an expired nonce are all rejected.
 - **Sessions.** 32 random bytes, returned once and stored only as a SHA-256 hash, valid 7 days, revoked on sign-out. Sent as `Authorization: Bearer`.

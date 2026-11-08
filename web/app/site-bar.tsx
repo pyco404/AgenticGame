@@ -61,9 +61,9 @@ const LOGO_CLASS = "h-6 w-6 rounded-sm bg-[#0c1018] object-contain [image-render
 function Mark() {
   return (
     // The logo opens the village itself, with no page over it.
-    <Link href="/" aria-label="Gamine home" className="game-wordmark flex shrink-0 items-center gap-2">
+    <Link href="/" aria-label="Agentic Games home" className="game-wordmark flex shrink-0 items-center gap-2">
       <img src="/gamine-tb.png" alt="" width={372} height={370} className={LOGO_CLASS} />
-      <span className="hidden font-pixel text-[20px] font-bold tracking-wider text-text sm:block">GAMINE</span>
+      <span className="hidden font-pixel text-[20px] font-bold tracking-wider text-text sm:block">AGENTIC GAMES</span>
     </Link>
   );
 }
@@ -396,8 +396,8 @@ function MenuPanel({ active, onClose }: { active: string | null; onClose: () => 
       className="rounded-panel fixed inset-x-2 top-2 z-40 flex max-h-[calc(100dvh-1rem)] flex-col overflow-y-auto border border-hud-line bg-hud px-4 pb-4 pt-3 shadow-[0_10px_32px_rgb(0_0_0/0.6)] sm:inset-x-auto sm:right-3 sm:top-16 sm:w-80"
     >
       <div className="flex items-center justify-between pb-2">
-        <img src="/gamine-tb.png" alt="Gamine" width={372} height={370} className={LOGO_CLASS} />
-      <span className="hidden font-pixel text-[20px] font-bold tracking-wider text-text sm:block">GAMINE</span>
+        <img src="/gamine-tb.png" alt="Agentic Games" width={372} height={370} className={LOGO_CLASS} />
+      <span className="hidden font-pixel text-[20px] font-bold tracking-wider text-text sm:block">AGENTIC GAMES</span>
         <div className="flex items-center gap-3">
           <span
             aria-hidden

@@ -56,7 +56,7 @@ export type ElicitOptions = {
 /** The rules, as the model needs to know them. */
 export function buildPrompt(stakes: Stakes, brief?: string): string {
   return [
-    `You are playing Gamine. Fill in a decision table; it will be played exactly as written.`,
+    `You are playing Agentic Games. Fill in a decision table; it will be played exactly as written.`,
     ``,
     `Each round both players privately draw an edge from ${EDGES.map((e) => e.toFixed(2)).join(", ")}.`,
     `Your edge is your chance of winning the round's coin flip against an unknown opponent draw;`,

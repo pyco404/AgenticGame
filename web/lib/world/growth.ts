@@ -32,7 +32,7 @@ export const PIECE_ART = {
   Fence: { src: "/fixtures/Fence.png", width: 96, height: 30, foot: 1 },
   // A sheet of eight frames, 128 across.
   Sheep: { src: "/fixtures/Sheep.png", width: 128, height: 128, foot: 0.8, frames: 8 },
-  // New Town's, drawn for Gamine (scripts/village-art.ts): glass, flat roofs, screens, lamps.
+  // New Town's, drawn for Agentic Games (scripts/village-art.ts): glass, flat roofs, screens, lamps.
   office: { src: "/village/gamine/modern-office.png", width: 56, height: 74, foot: 1 },
   "house-a": { src: "/village/gamine/modern-house-a.png", width: 54, height: 50, foot: 1 },
   "house-b": { src: "/village/gamine/modern-house-b.png", width: 54, height: 50, foot: 1 },

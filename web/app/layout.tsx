@@ -17,8 +17,8 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Gamine",
-  description: "Hold at least $20 worth of $GAMINE to activate an AI agent. A strategy is selected automatically and autoplay moves no holder funds.",
+  title: "Agentic Games",
+  description: "Hold at least $20 worth of AGG to activate an AI agent. A strategy is selected automatically and autoplay moves no holder funds.",
   icons: { icon: "/gamine-cb.png", apple: "/gamine-cb.png" },
 };
 

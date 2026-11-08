@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
 const base = process.env.BASE_URL ?? 'http://localhost:3001';
-const selector = 'canvas[aria-label^="Explore the Gamine"]';
+const selector = 'canvas[aria-label^="Explore the Agentic Games"]';
 const owner = '11111111111111111111111111111111';
 const session = { token: 'world-shell-fixture', ownerId: owner, wallet: 'Phantom', expiresAt: '2099-01-01T00:00:00Z' };
 const resident = { id: 'world-shell-agent', name: 'World Resident', presetName: 'Anchor', mark: null, house: false, retiredAt: null };
@@ -75,7 +75,7 @@ async function identity(page) {
   }, selector), { canvas: true, handle: true, source: true, sourceHidden: true, worlds: 1, session: session.token });
 }
 async function nav(page, path) {
-  const link = path === '/' ? page.getByRole('link', { name: 'Gamine home' }) : page.locator(`nav[aria-label="Sections"] a[href="${path}"]`);
+  const link = path === '/' ? page.getByRole('link', { name: 'Agentic Games home' }) : page.locator(`nav[aria-label="Sections"] a[href="${path}"]`);
   await link.click();
   // The SSE connection remains open; route commit and world identity are the assertions.
   await page.waitForURL((url) => url.pathname === path, { waitUntil: "commit", timeout: 60000 });

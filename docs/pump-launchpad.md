@@ -105,11 +105,11 @@ expected recipients and admin updates revoked. Token pages recheck the sharing
 configuration. The platform fee is verified through the immutable prepared
 message and confirmed signature, rather than a client payment assertion.
 
-## The $GAMINE launch
+## The AGG launch
 
 The official launching wallet is `Gh8BDiUhocbkrwaFv755y75dbH7QgzmaVJdF1SqYRi9H`.
 Connect and sign in with this wallet for the official launch; its private key stays
-in the wallet. Enter name `Gamine` and ticker `GAMINE` on the website.
+in the wallet. Enter name `Agentic Games` and ticker `AGG` on the website.
 
 Every ordinary launch receives a fresh random mint. The official launch can
 optionally use a pre-generated random mint; no vanity suffix is required.
@@ -117,7 +117,7 @@ optionally use a pre-generated random mint; no vanity suffix is required.
 The reserved official mint is `Aw55TiFnRqzXQZyLxhdqxE3T7fGMYpXHECTfDv6H62LS`.
 Set server-only `GAMINE_LAUNCHER_WALLET` to the official wallet and
 `GAMINE_LAUNCH_MINT_SECRET` to the privately stored keypair JSON. Only that
-wallet launching ticker `GAMINE` uses this mint. Other launches are unchanged.
+wallet launching ticker `AGG` uses this mint. Other launches are unchanged.
 Never publish the keypair or put it in a public environment variable. Remove the
 reservation variables after the launch confirms.
 Resuming an existing launch keeps its original mint and transaction.
@@ -161,10 +161,10 @@ npm run pump:distribute                                    # report and simulate
 npm run pump:distribute -- --keypair /path/to/wallet.json --send
 ```
 
-It defaults to $GAMINE; `--mint <address>` pays out another launch. The first payout,
+It defaults to AGG; `--mint <address>` pays out another launch. The first payout,
 1.495 SOL, was sent on 2026-10-09.
 
-To pay out every launch except $GAMINE in one run:
+To pay out every launch except AGG in one run:
 
 ```sh
 npm run pump:claim-all                                     # report and simulate

@@ -44,7 +44,7 @@ export function AgentStatus({ account, accountError, view, village }: {
   const holder = detail?.holder;
   const mint = detail?.agent.qualifyingTokenMint ?? agent?.qualifyingTokenMint ?? agent?.holderMint ?? holder?.holding.mint;
   const community = account?.tokenHoldings?.find((t) => t.mint === mint);
-  const symbol = community?.symbol ?? (agent?.holderMint ? `${agent.holderMint.slice(0, 4)}…${agent.holderMint.slice(-4)}` : "$GAMINE");
+  const symbol = community?.symbol ?? (agent?.holderMint ? `${agent.holderMint.slice(0, 4)}…${agent.holderMint.slice(-4)}` : "AGG");
   const qualifies = [account?.holding, ...(account?.tokenHoldings?.map((t) => t.holding) ?? [])].some((h) => h && eligibilityPresentation(h, false, Date.now()).state === "eligible");
   const waiting = !session ? "Sign in with your wallet to locate your agent." : accountError ? "Could not read your agents. Retrying…" : !account ? "Locating your agents…" : !owned.length ? qualifies ? "Your holdings qualify. Open Manage agents to create or activate your agent." : "No agent yet. Hold at least $20 of a qualifying token to activate one." : !agent ? "Waiting for your agent to appear in the field…" : null;
   const missing = current?.failed ? "Unavailable" : !current ? "Loading…" : "Unavailable";

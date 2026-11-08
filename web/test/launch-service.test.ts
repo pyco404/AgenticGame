@@ -119,10 +119,10 @@ describe("Launch service (RPC and IPFS stubbed; no transactions sent)", () => {
     expect(status.failure?.message).toContain("expired");
     expect(Connection.prototype.sendRawTransaction).not.toHaveBeenCalled();
   });
-  it("uses a fresh mint for GAMINE even when obsolete reserved-mint settings remain", async () => {
+  it("uses a fresh mint for AGG even when obsolete reserved-mint settings remain", async () => {
     vi.stubEnv("AGP_MINT_SECRET", "obsolete-invalid-secret");
     vi.stubEnv("AGP_MINT_LAUNCHER", "obsolete-invalid-wallet");
-    form = { ...form, name: "Gamine", ticker: "GAMINE" };
+    form = { ...form, name: "Agentic Games", ticker: "AGG" };
     const first = await prepare();
     expect(new PublicKey(first.mint).toBase58()).toBe(first.mint);
     expect(await prepare()).toEqual(first);
@@ -131,16 +131,16 @@ describe("Launch service (RPC and IPFS stubbed; no transactions sent)", () => {
     expect(second.mint).not.toBe(first.mint);
     expect(Connection.prototype.sendRawTransaction).not.toHaveBeenCalled();
   });
-  describe("an optional pre-generated Gamine mint", () => {
+  describe("an optional pre-generated Agentic Games mint", () => {
     let reserved: Keypair;
     beforeEach(() => {
       reserved = Keypair.generate();
       vi.stubEnv("GAMINE_LAUNCHER_WALLET", user.publicKey.toBase58());
       vi.stubEnv("GAMINE_LAUNCH_MINT_SECRET", JSON.stringify(Array.from(reserved.secretKey)));
-      form = { ...form, name: "Gamine", ticker: "GAMINE" };
+      form = { ...form, name: "Agentic Games", ticker: "AGG" };
       vi.spyOn(connection, "getAccountInfo").mockResolvedValue(null);
     });
-    it("uses the reserved mint only for the configured wallet and GAMINE ticker", async () => {
+    it("uses the reserved mint only for the configured wallet and AGG ticker", async () => {
       const other = Keypair.generate().publicKey.toBase58();
       const theirs = await prepareLaunch({ id, form: { ...form, creator: other } }, other, connection);
       expect(theirs.mint).not.toBe(reserved.publicKey.toBase58());

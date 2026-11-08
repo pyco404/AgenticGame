@@ -8,7 +8,7 @@ const base = process.env.BASE_URL ?? 'http://localhost:3001';
 const out = process.env.SCREENSHOT_DIR ?? '/tmp/gamine-upgrade';
 mkdirSync(out, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROME_BIN ?? '/usr/bin/google-chrome', args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
-const results = [], selector = 'canvas[aria-label^="Explore the Gamine"]';
+const results = [], selector = 'canvas[aria-label^="Explore the Agentic Games"]';
 
 async function open(options) {
   const page = await browser.newPage(options), errors = [];

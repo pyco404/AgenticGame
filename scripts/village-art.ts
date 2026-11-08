@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { RECOLOURED, TERRAIN } from "../web/app/village/game/palette.js";
 
 /**
- * Draws the village's Gamine art: the arena, the leaderboard, the Game
+ * Draws the village's Agentic Games art: the arena, the leaderboard, the Game
  * Hall's screens, the Strategy Lab's boards, the Launch Pad, banners and
  * flags bearing the crest, and the small things of the agent grounds.
  * Everything lands in web/public/village/gamine; nothing here runs at
@@ -1463,7 +1463,7 @@ if (!process.argv.includes("--terrain-only")) {
   save("bazaar", bazaar());
   save("pier", pier());
   save("launch-pad-card", launchPadFrame(true));
-  console.log(`Wrote the village's Gamine art to ${out}`);
+  console.log(`Wrote the village's Agentic Games art to ${out}`);
 }
 
 // --- The pack, recoloured ----------------------------------------------------

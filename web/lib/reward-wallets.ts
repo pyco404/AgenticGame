@@ -9,7 +9,7 @@ let cached: { at: number; value: RewardWallets } | null = null;
 
 /**
  * The shared agent reward wallet, as the chain has it now: its SOL for fees, and
- * the $GAMINE bought into it for payouts. Read at most every 30 seconds; a wallet that cannot be read
+ * the AGG bought into it for payouts. Read at most every 30 seconds; a wallet that cannot be read
  * shows its address with unknown balances rather than failing the page.
  */
 export async function rewardWallets(): Promise<RewardWallets> {

@@ -578,9 +578,9 @@ function PersistentWorld({
           </button>
         ) : null}
         {status === "ready" && !stranded && !observing ? (
-          // The world itself: $GAMINE's contract address, ready to copy.
+          // The world itself: AGG's contract address, ready to copy.
           <p className="rounded-panel pointer-events-auto hidden items-center gap-2 border border-hud-line bg-hud py-1 pl-2.5 pr-1 text-[12px] text-muted md:flex">
-            <span><span className="text-accent">$GAMINE</span> - <span className="font-mono text-text">{AGP_MINT}</span></span>
+            <span><span className="text-accent">AGG</span> - <span className="font-mono text-text">{AGP_MINT}</span></span>
             <CopyButton value={AGP_MINT} label="Copy" className="rounded border border-hud-line px-2 py-0.5 text-[11px] text-accent hover:border-accent" />
           </p>
         ) : (

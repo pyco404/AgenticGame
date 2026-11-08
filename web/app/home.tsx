@@ -302,14 +302,14 @@ export default function Home({ initialFeed }: { initialFeed: Feed | null }) {
     />
   ) : null;
 
-  const availableTokens = [{ mint: "", symbol: "$GAMINE", holding }, ...tokenHoldings]
+  const availableTokens = [{ mint: "", symbol: "AGG", holding }, ...tokenHoldings]
     .filter((item) => !inPlay.some((a) => (a.holderMint ?? "") === item.mint));
   const chosenHolding = selectedMint ? tokenHoldings.find((item) => item.mint === selectedMint)?.holding ?? null : holding;
   const rentPanel = (
     <div className="space-y-3">
     {tokenHoldings.length ? <label className="block text-[13px] text-muted">Token for your replacement agent
       <select value={selectedMint} onChange={(event) => setSelectedMint(event.target.value)} className="mt-2 block w-full rounded border border-line bg-panel p-3 text-text">
-        {[{ mint: "", symbol: "$GAMINE", holding }, ...tokenHoldings].map((item) => <option key={item.mint} value={item.mint}>{item.symbol}{inPlay.some((a) => (a.holderMint ?? "") === item.mint) ? " · agent already exists" : ""}</option>)}
+        {[{ mint: "", symbol: "AGG", holding }, ...tokenHoldings].map((item) => <option key={item.mint} value={item.mint}>{item.symbol}{inPlay.some((a) => (a.holderMint ?? "") === item.mint) ? " · agent already exists" : ""}</option>)}
       </select>
     </label> : null}
     <RentPanel
@@ -354,7 +354,7 @@ export default function Home({ initialFeed }: { initialFeed: Feed | null }) {
   return (
     <Page
       title="Agent"
-      intro="Hold at least $20 worth of $GAMINE or a token launched on Gamine to activate a separate agent for each qualifying token. The system picks one of four strategies and starts autoplay. Matches never spend your tokens. End your agent to create your own strategy."
+      intro="Hold at least $20 worth of AGG or a token launched on Agentic Games to activate a separate agent for each qualifying token. The system picks one of four strategies and starts autoplay. Matches never spend your tokens. End your agent to create your own strategy."
     >
       {!session ? <WelcomeCard /> : null}
 
@@ -379,7 +379,7 @@ export default function Home({ initialFeed }: { initialFeed: Feed | null }) {
 
 function WelcomeCard() {
   return (
-    <section aria-label="Welcome to Gamine" className="hud-card relative overflow-hidden p-5 sm:p-6">
+    <section aria-label="Welcome to Agentic Games" className="hud-card relative overflow-hidden p-5 sm:p-6">
       <div aria-hidden className="absolute right-0 top-0 h-24 w-24 border-b border-l border-teal/20 bg-teal/5" />
       <div className="relative">
         <div className="mb-5 flex items-center gap-3">
@@ -706,7 +706,7 @@ function YourAgents({
                 <span className="min-w-0 flex-1 truncate">
                   <AgentName name={a.name} preset={a.presetName} />
                 </span>
-                <span className="font-mono text-[11px] text-muted" title={a.holderMint || "Primary token"}>{a.holderMint ? `${a.holderMint.slice(0, 4)}…${a.holderMint.slice(-4)}` : "$GAMINE"}</span>
+                <span className="font-mono text-[11px] text-muted" title={a.holderMint || "Primary token"}>{a.holderMint ? `${a.holderMint.slice(0, 4)}…${a.holderMint.slice(-4)}` : "AGG"}</span>
                 {a.retired ? (
                   <span className="shrink-0 font-mono text-[11px] uppercase tracking-wider text-muted">retired</span>
                 ) : (

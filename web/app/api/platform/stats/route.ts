@@ -25,7 +25,7 @@ async function totals(): Promise<PlatformTotals> {
       const wallets = [new PublicKey(AGENT_REWARDS_WALLET)];
       const accounts = await rpc.getMultipleAccountsInfo(wallets);
       rewardPoolSol = accounts.reduce((sum, a) => sum + (a?.lamports ?? 0), 0) / 1e9;
-      // The $GAMINE bought into the reward wallets for payouts, across every account each holds for the mint.
+      // The AGG bought into the reward wallets for payouts, across every account each holds for the mint.
       const mint = new PublicKey(process.env.PAYOUT_AGP_MINT || AGP_MINT);
       const held = await Promise.all(wallets.map((owner) => rpc.getParsedTokenAccountsByOwner(owner, { mint })));
       rewardPoolAgp = held.flatMap((r) => r.value).reduce((sum, a) => sum + Number(a.account.data.parsed.info.tokenAmount.uiAmount ?? 0), 0);

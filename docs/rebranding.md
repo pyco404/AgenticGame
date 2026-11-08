@@ -1,8 +1,9 @@
-# Gamine and $GAMINE
+# Agentic Games and AGG
 
-The project is now named **Gamine**, and its planned token is **$GAMINE**.
-Application copy, metadata, wallet sign-in text, docs, package names, engine
-rule identifiers and asset paths use the new branding. The payout mint setting
+The project is now named **Agentic Games**, and its planned token is **AGG**.
+Application copy, metadata, wallet sign-in text and docs use the new branding.
+Existing package names, engine rule identifiers, asset paths and configuration
+keys remain compatible with existing installations. The payout mint setting
 is now `PAYOUT_AGP_MINT` in `web/.env.local`.
 
 The website is **https://trygamine.xyz** and the X page is
@@ -28,5 +29,5 @@ fresh setup. Existing installations must set `POSTGRES_USER`, `POSTGRES_PASSWORD
 `DATABASE_URL` consistent, to reuse their database. No database or volume was
 modified by the branding edits.
 
-The local checkout remains at its actual `/home/pikoo/Desktop/gamine` path;
+The local checkout is at `/home/pikoo/Desktop/agentic-games`;
 renaming the project branding does not move the workspace or its database file.

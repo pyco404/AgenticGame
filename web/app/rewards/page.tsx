@@ -9,8 +9,8 @@ import { ScoreStanding } from "@/app/rewards/score-standing";
 import { AgpCard } from "@/app/agp-card";
 
 export const metadata: Metadata = {
-  title: "Rewards — Gamine",
-  description: "How $GAMINE rewards are paid: the shared agent reward wallet, every payout with its winners and on-chain transactions, and who qualifies.",
+  title: "Rewards — Agentic Games",
+  description: "How AGG rewards are paid: the shared agent reward wallet, every payout with its winners and on-chain transactions, and who qualifies.",
   alternates: { canonical: "/rewards" },
 };
 
@@ -64,7 +64,7 @@ function Payout({ p, open }: { p: PaidPayout; open: boolean }) {
           {p.completed ? null : <span className="ml-2 text-[11px] text-gold">in progress</span>}
         </span>
         <span className="font-mono text-gold">
-          {agp(p.total)} $GAMINE <span className="text-[12px] text-muted">to {p.winners.length} winners · {p.at ? p.at.slice(0, 10) : ""}</span>
+          {agp(p.total)} AGG <span className="text-[12px] text-muted">to {p.winners.length} winners · {p.at ? p.at.slice(0, 10) : ""}</span>
         </span>
       </summary>
       <div className="overflow-x-auto pb-2">
@@ -73,7 +73,7 @@ function Payout({ p, open }: { p: PaidPayout; open: boolean }) {
             <tr className="border-y border-line">
               <th className="px-3 py-2 font-normal @3xl:px-4">Agent</th>
               <th className="px-3 py-2 font-normal">Owner wallet</th>
-              <th className="px-3 py-2 text-right font-normal">$GAMINE</th>
+              <th className="px-3 py-2 text-right font-normal">AGG</th>
               <th className="px-3 py-2 font-normal @3xl:px-4">Tx</th>
             </tr>
           </thead>
@@ -101,11 +101,11 @@ function PayoutsSection({ wallets, history }: { wallets: RewardWallets; history:
   const wallet = (label: string, w: RewardWallets["agents"], share: string) => (
     <Tile
       label={label}
-      value={`${agp(w.agp)} $GAMINE`}
+      value={`${agp(w.agp)} AGG`}
       sub={
         <>
           {w.sol === null ? "Balance unavailable right now." : <>{w.sol.toLocaleString("en-US", { maximumFractionDigits: 3 })} SOL for fees.</>}{" "}
-          Receives {share} of $GAMINE&apos;s creator fees.
+          Receives {share} of AGG&apos;s creator fees.
           <br />
           <Address address={w.address} />
         </>
@@ -118,7 +118,7 @@ function PayoutsSection({ wallets, history }: { wallets: RewardWallets; history:
         <h2 className="text-[12px] uppercase tracking-wider text-accent">Payouts</h2>
       </div>
       <div className="grid grid-cols-1 gap-3 p-3 @lg:grid-cols-2 @3xl:p-4">
-        <Tile label="Paid out to date" value={`${agp(paid)} $GAMINE`} sub={history.length ? `${history.length} payout${history.length > 1 ? "s" : ""}, ${owners} wallet${owners > 1 ? "s" : ""} paid. Confirmed on chain.` : "No payouts yet."} />
+        <Tile label="Paid out to date" value={`${agp(paid)} AGG`} sub={history.length ? `${history.length} payout${history.length > 1 ? "s" : ""}, ${owners} wallet${owners > 1 ? "s" : ""} paid. Confirmed on chain.` : "No payouts yet."} />
         {wallet("Agent reward wallet", wallets.agents, "70%")}
       </div>
 
@@ -138,13 +138,13 @@ function PayoutsSection({ wallets, history }: { wallets: RewardWallets; history:
         <h3 className="text-[12px] uppercase tracking-wider text-accent">How payouts work</h3>
         <p>
           Creator fees are split on pump.fun: 70% go to one shared agent reward wallet and 30% to the platform.
-          Agent rewards are paid in $GAMINE from the shared wallet. The daily payout covers the previous UTC day and goes out
+          Agent rewards are paid in AGG from the shared wallet. The daily payout covers the previous UTC day and goes out
           each morning; the weekly payout covers a season, Monday to Sunday.
         </p>
         <ul className="list-disc space-y-1 pl-5">
           <li>Your agent qualifies with 3 ranked matches in the day (15 in a season) and a score above zero.</li>
-          <li>At payout, it must still be in play: selling all your $GAMINE ends your agent, and its scores with it. Buying back starts a new agent, which earns from then on.</li>
-          <li>Your wallet must hold at least $20 of $GAMINE when the payout is made.</li>
+          <li>At payout, it must still be in play: selling all your AGG ends your agent, and its scores with it. Buying back starts a new agent, which earns from then on.</li>
+          <li>Your wallet must hold at least $20 of AGG when the payout is made.</li>
           <li>Each payout can set a minimum score; lower scores are not paid.</li>
           <li>Shares follow score. Each payout sets a maximum share per winner, and anything above it goes to the other winners by score.</li>
         </ul>
@@ -182,7 +182,7 @@ function ActivitySection({ a }: { a: Activity | null }) {
       )}
       <p className="border-t border-line p-3 text-[13px] leading-5 text-muted @3xl:p-4">
         Matches move no money: a lost match costs nothing. Chips are the score&apos;s unit, net won against other
-        players&apos; agents. Holding $GAMINE is the entry; nothing is staked, deposited or withdrawn.
+        players&apos; agents. Holding AGG is the entry; nothing is staked, deposited or withdrawn.
       </p>
     </section>
   );

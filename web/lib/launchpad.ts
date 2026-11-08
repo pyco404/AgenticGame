@@ -1,8 +1,8 @@
 /**
  * The launchpad: a frontend over pump.fun's launch flow (docs/holder-agents.md,
  * Launchpad). A token launched here lives on pump.fun like any other; what
- * Gamine adds is agents for its holders, in the shared village, and its
- * creator fees sent to the two Gamine wallets.
+ * Agentic Games adds is agents for its holders, in the shared village, and its
+ * creator fees sent to the two Agentic Games wallets.
  *
  * Everything the pages need goes through the Launchpad interface below.
  * NEXT_PUBLIC_LAUNCHPAD_MODE=pump selects the wallet-signed mainnet adapter;
@@ -46,7 +46,7 @@ export type LaunchpadConfig = {
   launcherShare: number;
   /** The most of one payout a single token's agents may take, in percent; null for no cap. */
   perTokenCap: number | null;
-  /** What a point is multiplied by, for $GAMINE agents and for launch-token agents. */
+  /** What a point is multiplied by, for AGG agents and for launch-token agents. */
   agpMultiplier: number;
   launchMultiplier: number;
   /** The largest token image accepted, in bytes. */
