@@ -110,11 +110,11 @@ export RAILWAY_PROJECT_ID=1a221ebf-b899-489d-801c-74b029c40d82
 export NEXT_PUBLIC_SITE_URL=https://web-production-944c2.up.railway.app
 ```
 
-New Railway services use their service settings for the build and start
-commands. The `web` service uses root `/web`, build `npm run build`, start
-`npm run start`, and health check `/`. The `api` service uses root `/`, start
-`npm start`, and health check `/ladder`. The legacy `railway.json` files are
-retained for existing deployments.
+New Railway services use the checked-in Dockerfiles with Node 24. The `web`
+service uses root `/web`, start `npm run start`, and health check `/`. The
+`api` service uses root `/`, start `npm start`, and health check `/ladder`.
+The web Dockerfile accepts public build variables as build arguments. The
+legacy `railway.json` files are retained for existing deployments.
 
 `railway up` uploads the *working tree*, not the commit, so deploying by hand
 can put code live that is in nobody's git history — which has happened here,
