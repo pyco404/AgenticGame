@@ -383,7 +383,7 @@ export function createApp(options: AppOptions): Server {
     }
     const holderMint = typeof ctx.body["holderMint"] === "string" ? ctx.body["holderMint"] : "";
     const selectedChain = holderMint ? await holder.catalog?.chain(holderMint) : holder.chain;
-    if (!selectedChain) throw new HttpError(400, "this token is not a confirmed Agentic Games launch");
+    if (!selectedChain) throw new HttpError(400, "this token is not a confirmed Agentic Game launch");
     {
       let holding;
       try {

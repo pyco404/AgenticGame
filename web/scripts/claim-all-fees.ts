@@ -5,7 +5,7 @@ import { AGP_MINT } from "../lib/agp";
 import { distribute, feeWalletBalances, mainnet, type Distribution } from "./pump-distribute";
 
 /**
- * Pays out the creator fees of every token launched on Agentic Games except AGG, each to its locked
+ * Pays out the creator fees of every token launched on Agentic Game except AGG, each to its locked
  * split (70% shared agent rewards, 30% platform). The token list comes from the site's confirmed-launch
  * catalog and is kept in web/.data/launched-tokens.json: tokens are added as they launch and never
  * dropped, so an archived launch is still swept. Without --send it reports and simulates only; one

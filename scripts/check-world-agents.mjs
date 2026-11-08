@@ -49,7 +49,7 @@ try {
       return route.continue();
     });
     await page.goto(`${base}/?debugAgents=1`, { waitUntil: 'domcontentloaded' });
-    const canvas = page.locator('canvas[aria-label^="Explore the Agentic Games"]');
+    const canvas = page.locator('canvas[aria-label^="Explore the Agentic Game"]');
     await canvas.waitFor({ timeout: 60000 });
     const enter = page.getByRole('button', { name: /enter world/i });
     if (await enter.count()) await enter.click();
@@ -72,7 +72,7 @@ try {
     });
     assert.deepEqual(pixels.head, [255, 0, 0, 255]); assert.deepEqual(pixels.legs, [0, 255, 255, 255]); assert.equal(pixels.depth, 14);
     fields = await page.evaluate(fields => {
-      const el = document.querySelector('canvas[aria-label^="Explore the Agentic Games"]');
+      const el = document.querySelector('canvas[aria-label^="Explore the Agentic Game"]');
       let f = el[Object.keys(el).find(k => k.startsWith('__reactFiber'))];
       while (f && !f.memoizedProps?.village?.current) f = f.return;
       const handle = f.memoizedProps.village.current;
@@ -164,7 +164,7 @@ try {
     for (let i = 0; i < 6; i++) await page.keyboard.press('+');
     await page.waitForTimeout(1000);
     for (const path of ['/launch', '/live', '/games', '/']) {
-      if (path === '/') await page.getByRole('link', { name: 'Agentic Games home' }).click();
+      if (path === '/') await page.getByRole('link', { name: 'Agentic Game home' }).click();
       else await page.locator(`nav[aria-label="Sections"] a[href="${path}"]`).click();
       await page.waitForTimeout(350);
       assert.equal(await canvas.evaluate(el => el === window.__agentTest.canvas), true, 'World canvas remounted on navigation');

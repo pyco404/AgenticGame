@@ -5,8 +5,8 @@ import { LAUNCHPAD } from "@/lib/launchpad";
 import { Explore } from "./view";
 
 export const metadata: Metadata = {
-  title: "Explore — Agentic Games",
-  description: "Every token launched on Agentic Games: new launches, the most traded, the largest, and the ones with the most agents.",
+  title: "Explore — Agentic Game",
+  description: "Every token launched on Agentic Game: new launches, the most traded, the largest, and the ones with the most agents.",
   alternates: { canonical: "/explore" },
 };
 

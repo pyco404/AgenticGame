@@ -67,7 +67,7 @@ describe("portraits", () => {
     }
   });
 
-  it("borrow nothing from the Agentic Games mark", () => {
+  it("borrow nothing from the Agentic Game mark", () => {
     for (let i = 0; i < 400; i++) {
       const p = portrait(`mark-${i}`, snapshotPreset(PRESET_NAMES[i % 4]!));
       expect(p.svg.toLowerCase()).not.toContain("#ff2d2d");

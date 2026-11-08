@@ -28,7 +28,7 @@ export const ROAD_WIDTH = RING_WIDTH;
  *     training yard where waiting agents wander.
  *
  * Positions are world pixels, each building's bottom-centre. The art drawn for
- * Agentic Games (scripts/village-art.ts, in /village/gamine) is at one art
+ * Agentic Game (scripts/village-art.ts, in /village/gamine) is at one art
  * pixel to two world pixels, so it is drawn at scale 2.
  */
 

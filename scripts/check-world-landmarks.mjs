@@ -17,9 +17,9 @@ try{
  await page.route('**/*',r=>{const u=new URL(r.request().url()),headers={'access-control-allow-origin':'*'};
   if(u.pathname==='/field'&&r.request().resourceType()!=='document')return r.fulfill({json:{agents:[],at:new Date().toISOString()},headers});
   if(u.pathname==='/live'&&r.request().headers().accept?.includes('text/event-stream'))return r.fulfill({body:'retry: 600000\n\nevent: hello\ndata: {"counters":{"matchesToday":0,"holders":0},"playMs":10000}\n\n',contentType:'text/event-stream',headers});return r.continue();});
- await page.goto(`${base}/?debugWorldPerf=1`,{waitUntil:'domcontentloaded',timeout:90000});await page.locator('canvas[aria-label^="Explore the Agentic Games"]').waitFor({timeout:60000});
+ await page.goto(`${base}/?debugWorldPerf=1`,{waitUntil:'domcontentloaded',timeout:90000});await page.locator('canvas[aria-label^="Explore the Agentic Game"]').waitFor({timeout:60000});
  const enter=page.getByRole('button',{name:/enter world/i});if(await enter.count())await enter.click();
- await page.evaluate(()=>{const el=document.querySelector('canvas[aria-label^="Explore the Agentic Games"]');let f=el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];while(f&&!f.memoizedProps?.village?.current)f=f.return;window.__landmarkHandle=f.memoizedProps.village.current;});
+ await page.evaluate(()=>{const el=document.querySelector('canvas[aria-label^="Explore the Agentic Game"]');let f=el[Object.keys(el).find(k=>k.startsWith('__reactFiber'))];while(f&&!f.memoizedProps?.village?.current)f=f.return;window.__landmarkHandle=f.memoizedProps.village.current;});
  await page.waitForFunction(()=>window.__landmarkHandle.snapshot().ground&&!window.__landmarkHandle.snapshot().forestPending,undefined,{timeout:60000});
  await page.addScriptTag({content:helper.outputFiles[0].text});await page.waitForFunction(()=>Landmarks.solidRevision()>0);
  const audit=await page.evaluate(()=>{

@@ -95,8 +95,8 @@ export function LaunchFlow() {
       <p className="hud-card px-4 py-3 text-[13px] leading-5">
         <span className="text-accent">
           {config.launcherShare === 0
-            ? "All of the token's creator fees go to Agentic Games's wallets. The launcher keeps none."
-            : `${100 - config.launcherShare}% of the token's creator fees go to Agentic Games's wallets; the launcher keeps ${config.launcherShare}%.`}
+            ? "All of the token's creator fees go to Agentic Game's wallets. The launcher keeps none."
+            : `${100 - config.launcherShare}% of the token's creator fees go to Agentic Game's wallets; the launcher keeps ${config.launcherShare}%.`}
         </span>{" "}
         {config.feeSplit.agents}% agent rewards, {config.feeSplit.platform}% platform, locked at launch.
       </p>
@@ -346,7 +346,7 @@ function ReviewStep({
         <p className="mt-2">Initial buy: {solToLamports(draft.initialBuySol) / 1_000_000_000} SOL. Platform fee + initial buy: {(config.launchFeeLamports + solToLamports(draft.initialBuySol)) / 1_000_000_000} SOL, plus account rent and network fees.</p>
         {!launchpad.mock ? <p className="mt-2 text-[12px] text-muted">Creation, the locked fee split, your optional buy and the platform fee share one transaction. If the transaction fails, the platform fee and purchase are not charged; network fees may still apply.</p> : null}
         <p className="mt-2 text-[12px] text-muted">
-          Paid to Agentic Games&apos;s platform wallet:{" "}
+          Paid to Agentic Game&apos;s platform wallet:{" "}
           <a href={`https://solscan.io/account/${config.launchFeeRecipient}`} target="_blank" rel="noreferrer" className="text-accent underline" title={config.launchFeeRecipient}>
             {shortKey(config.launchFeeRecipient)}
           </a>
@@ -360,7 +360,7 @@ function ReviewStep({
           <li>
             <span className="text-accent">What you give up.</span>{" "}
             {launcherShare === 0
-              ? `All of ${t}'s pump.fun creator fees. They go to Agentic Games's two wallets: ${s.agents}% to the shared agent reward wallet, ${s.platform}% to the platform. You keep none of them.`
+              ? `All of ${t}'s pump.fun creator fees. They go to Agentic Game's two wallets: ${s.agents}% to the shared agent reward wallet, ${s.platform}% to the platform. You keep none of them.`
               : `${100 - launcherShare}% of ${t}'s pump.fun creator fees: ${s.agents}% to the shared agent reward wallet, ${s.platform}% to the platform. The launcher's share is ${launcherShare}%.`}
           </li>
           <li>
@@ -390,7 +390,7 @@ function ReviewStep({
           />
           <span>
             I agree to the mandatory {config.launchFeeLamports / 1_000_000_000} SOL launch fee, plus network costs and any initial token purchase.{" "}
-            I understand that {launcherShare === 0 ? "all" : `${100 - launcherShare}%`} of {t}&apos;s creator fees go to Agentic Games&apos;s wallets,
+            I understand that {launcherShare === 0 ? "all" : `${100 - launcherShare}%`} of {t}&apos;s creator fees go to Agentic Game&apos;s wallets,
             split {splitText}, {launcherShare === 0 ? "that I keep none of them, " : ""}and that the split cannot be changed after launch.
           </span>
         </label>
@@ -546,7 +546,7 @@ function Success({ mint, draft, agentsLive }: { mint: string; draft: Draft; agen
   const [copied, setCopied] = useState(false);
   const page = `/launch/${mint}`;
   const url = typeof window === "undefined" ? page : `${window.location.origin}${page}`;
-  const text = `$${draft.ticker} launched on Agentic Games.${agentsLive ? " Qualifying holders get an agent in the village, playing Bluff & Fold." : ""}`;
+  const text = `$${draft.ticker} launched on Agentic Game.${agentsLive ? " Qualifying holders get an agent in the village, playing Bluff & Fold." : ""}`;
   return (
     <Board sign="Live">
       <p>${draft.ticker} is on pump.fun and verified on chain. {agentsLive ? "Its agents are in the village." : "Its creator fee split is locked. Holder-agent activation is pending."}</p>
@@ -556,7 +556,7 @@ function Success({ mint, draft, agentsLive }: { mint: string; draft: Draft; agen
           ticker={draft.ticker}
           image={draft.image}
           description={draft.description.trim()}
-          footer={<p className="text-[12px] text-muted">{agentsLive ? `Hold $${draft.ticker}, get an agent. Agentic Games.` : "Launched through Agentic Games."}</p>}
+          footer={<p className="text-[12px] text-muted">{agentsLive ? `Hold $${draft.ticker}, get an agent. Agentic Game.` : "Launched through Agentic Game."}</p>}
         />
       </div>
       <div className="mt-3 grid grid-cols-1 gap-2 @md:grid-cols-2">

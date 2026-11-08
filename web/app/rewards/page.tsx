@@ -9,7 +9,7 @@ import { ScoreStanding } from "@/app/rewards/score-standing";
 import { AgpCard } from "@/app/agp-card";
 
 export const metadata: Metadata = {
-  title: "Rewards — Agentic Games",
+  title: "Rewards — Agentic Game",
   description: "How AGG rewards are paid: the shared agent reward wallet, every payout with its winners and on-chain transactions, and who qualifies.",
   alternates: { canonical: "/rewards" },
 };

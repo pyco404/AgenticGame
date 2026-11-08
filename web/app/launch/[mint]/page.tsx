@@ -6,7 +6,7 @@ import { TokenView } from "../token-view";
 
 export async function generateMetadata({ params }: { params: Promise<{ mint: string }> }): Promise<Metadata> {
   const { mint } = await params;
-  return { title: "Token — Agentic Games", alternates: { canonical: `/launch/${mint}` } };
+  return { title: "Token — Agentic Game", alternates: { canonical: `/launch/${mint}` } };
 }
 
 /** A launched token's page, read through the configured launchpad adapter. */

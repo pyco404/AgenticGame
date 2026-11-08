@@ -160,7 +160,7 @@ const SEEDS: Seed[] = [
     volume24hUsd: 44_000,
     bondingProgress: 100,
     removedReason:
-      "Its fee split was found changed on pump.fun after launch: creator fees no longer go to the two Agentic Games wallets. Its agents left the village.",
+      "Its fee split was found changed on pump.fun after launch: creator fees no longer go to the two Agentic Game wallets. Its agents left the village.",
   },
   // More made-up tokens, so every ordering on the explore page has something to rank.
   ...(

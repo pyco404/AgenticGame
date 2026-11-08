@@ -107,7 +107,7 @@ As in [economy.md](economy.md#creator-fees-and-prizes), with the split changed 2
 
 ## Launchpad (direction)
 
-**Token launch integration started 2026-10-05; automatic AGG holder activation is implemented; multi-token activation is implemented.** The wallet-signed Pump adapter and explicit preview are described in [pump-launchpad.md](pump-launchpad.md). Real launches require operator configuration before they can run. The holding model applies independently to AGG and every confirmed Agentic Games launch token.
+**Token launch integration started 2026-10-05; automatic AGG holder activation is implemented; multi-token activation is implemented.** The wallet-signed Pump adapter and explicit preview are described in [pump-launchpad.md](pump-launchpad.md). Real launches require operator configuration before they can run. The holding model applies independently to AGG and every confirmed Agentic Game launch token.
 
 - **Any token can launch on the platform.** It gives up 100% of its creator fees, split 70/30 like every token ([Rewards](#rewards)).
 - **Every launch requires a 0.05 SOL platform fee** (50,000,000 lamports), to deter spam. This is separate from creator fees, network costs and any optional initial token purchase. Launchers receive 0% of creator fees and may buy tokens during creation. Recorded 2026-10-05.

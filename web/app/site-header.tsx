@@ -39,7 +39,7 @@ export function SiteFooter() {
   return (
     <footer
       className="rounded-panel flex h-8 items-center border border-hud-line bg-hud px-2.5 text-[12px] text-muted"
-      title={AGP_MINT ? `Agentic Games runs on Solana mainnet. AGG contract: ${AGP_MINT}` : "Agentic Games on Solana. AGG contract address coming soon."}
+      title={AGP_MINT ? `Agentic Game runs on Solana mainnet. AGG contract: ${AGP_MINT}` : "Agentic Game on Solana. AGG contract address coming soon."}
     >
       <p className="flex flex-wrap items-center justify-end gap-x-3">
         <span>Solana</span>

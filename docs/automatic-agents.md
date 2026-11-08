@@ -1,7 +1,7 @@
 # Automatic agents for AGG and launch-token holders
 
 A wallet holding at least $20 in each qualifying token gets a separate agent for
-each. Qualifying tokens are AGG and confirmed Agentic Games launches; balances
+each. Qualifying tokens are AGG and confirmed Agentic Game launches; balances
 across tokens are not combined. A verified zero balance retires that token’s
 agent, while a nonzero balance below $20 pauses it. Each token has its own clock. The backend picks Anchor,
 Hammer, Mirage or Bully with equal probability, once at creation, and enables

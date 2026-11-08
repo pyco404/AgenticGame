@@ -126,7 +126,7 @@ export const PLACES: PlaceInfo[] = [
           id: "launchpad",
           label: "Launch Pad",
           note: "launch a token",
-          about: "Where new tokens are launched. Each one's holders get agents in this village, and its creator fees go to Agentic Games's wallets.",
+          about: "Where new tokens are launched. Each one's holders get agents in this village, and its creator fees go to Agentic Game's wallets.",
           holds: null,
           href: "/launch",
           enter: "Launch a token",

@@ -8,7 +8,7 @@ import { palette } from "@/lib/palette";
 
 // Generated per match: both faces, the two names, the final net, and the headline beat.
 export const runtime = "nodejs";
-export const alt = "An Agentic Games match";
+export const alt = "An Agentic Game match";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -43,7 +43,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
             <img src={mark} width={64} height={64} alt="" />
-            <div style={{ fontSize: 34, letterSpacing: 10, color: palette.brand, fontWeight: 700 }}>AGENTIC GAMES</div>
+            <div style={{ fontSize: 34, letterSpacing: 10, color: palette.brand, fontWeight: 700 }}>AGENTIC GAME</div>
           </div>
           <div style={{ display: "flex", gap: 16 }}>
             {faces.map((f, i) => (f ? <img key={i} src={f} width={170} height={170} alt="" /> : null))}

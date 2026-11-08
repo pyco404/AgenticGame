@@ -109,7 +109,7 @@ message and confirmed signature, rather than a client payment assertion.
 
 The official launching wallet is `Gh8BDiUhocbkrwaFv755y75dbH7QgzmaVJdF1SqYRi9H`.
 Connect and sign in with this wallet for the official launch; its private key stays
-in the wallet. Enter name `Agentic Games` and ticker `AGG` on the website.
+in the wallet. Enter name `Agentic Game` and ticker `AGG` on the website.
 
 Every ordinary launch receives a fresh random mint. The official launch can
 optionally use a pre-generated random mint; no vanity suffix is required.

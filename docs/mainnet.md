@@ -51,7 +51,7 @@ The shared agent reward wallet and the platform wallet ([economy.md](economy.md#
 2. **Build verifiably** (`anchor build --verifiable`), so anyone can check the deployed bytecode against the source.
 3. **Generate the keys** as above. Fund the ops wallet; fund the deploy key and the settler from it.
 4. **A separate mainnet environment:** its own database (the current one is devnet agents and balances), api and web; Helius paid; the mainnet cluster, RPC and AGG mint; deposit funding only; the faucet off. Devnet moves to its subdomain.
-5. **Mint AGG** on pump.fun, named **Agentic Games** with ticker **AGP**, and confirm its token program (Token-2022 expected) and that its mint and freeze authorities are revoked — the program refuses a mint that can still mint.
+5. **Mint AGG** on pump.fun, named **Agentic Game** with ticker **AGP**, and confirm its token program (Token-2022 expected) and that its mint and freeze authorities are revoked — the program refuses a mint that can still mint.
 6. **Configure the creator-fee split** on pump.fun, three ways, before fees accumulate ([economy.md](economy.md#creator-fees-and-prizes)). One-shot.
 7. **Deploy the program** with the deploy key, and **initialise it in the next transaction**, before anything else: the deploy key is still the upgrade authority, so it signs `initialize` with the admin (step 1.8). Initialise sets the settler, the chip rate from AGG's real price, rent of $2 and a per-match limit of 60 chips at that rate.
 8. **Then** move the upgrade authority to its hardware wallet, verify the deployed build against the published hash (step 2), empty the deploy key, and turn the exit window on (30 minutes).

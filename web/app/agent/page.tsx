@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Your agent — Agentic Games",
-  description: "Follow your autonomous agent through the Agentic Games world.",
+  title: "Your agent — Agentic Game",
+  description: "Follow your autonomous agent through the Agentic Game world.",
   alternates: { canonical: "/agent" },
 };
 

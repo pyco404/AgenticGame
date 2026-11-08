@@ -1,4 +1,4 @@
-# Agentic Games asset consistency review
+# Agentic Game asset consistency review
 
 Implemented 12 October 2026; committed, not yet deployed.
 

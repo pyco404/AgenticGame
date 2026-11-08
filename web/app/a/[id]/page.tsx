@@ -20,9 +20,9 @@ const strategy = (preset: string | null) => (preset ? `${preset} preset` : "Cust
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const found = await lookupAgent(id);
-  if (found.status !== "ok") return { title: "Agent — Agentic Games" };
+  if (found.status !== "ok") return { title: "Agent — Agentic Game" };
   const { agent, record } = found.data;
-  const title = `${agent.name} — Agentic Games`;
+  const title = `${agent.name} — Agentic Game`;
   const description = `${strategy(agent.presetName)}. ${record.wins}–${record.losses}${
     record.level ? `–${record.level}` : ""
   } over ${record.wins + record.losses + record.level} matches, ${signed(agent.cumulativeNet ?? 0)} all time.`;

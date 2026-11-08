@@ -31,7 +31,7 @@ export type Distribution =
 
 /**
  * Pays one token's accumulated pump.fun creator fees out to its locked fee split (70% shared agent rewards,
- * 30% platform for Agentic Games launches). Anyone may send it; the signer pays only the network
+ * 30% platform for Agentic Game launches). Anyone may send it; the signer pays only the network
  * fee. It always simulates first, and sends only with `send` and a signer: a failing simulation
  * throws and nothing is sent.
  */

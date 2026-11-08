@@ -24,7 +24,7 @@ esac
 
 PROJECT="${RAILWAY_PROJECT_ID:-}"
 if [ -z "$PROJECT" ]; then
-  echo "Set RAILWAY_PROJECT_ID to the Agentic Games project ID before deploying."
+  echo "Set RAILWAY_PROJECT_ID to the Agentic Game project ID before deploying."
   exit 1
 fi
 ENVIRONMENT="${2:-production}"

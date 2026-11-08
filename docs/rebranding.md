@@ -1,8 +1,10 @@
-# Agentic Games and AGG
+# Agentic Game and AGG
 
-The project is now named **Agentic Games**, and its planned token is **AGG**.
+The display name is **Agentic Game**, the compact name is **AgenticGame**,
+and its planned token is **AGG**. Package names use `agenticgame` and
+`agenticgame-web`.
 Application copy, metadata, wallet sign-in text and docs use the new branding.
-Existing package names, engine rule identifiers, asset paths and configuration
+Existing engine rule identifiers, asset paths and configuration
 keys remain compatible with existing installations. The payout mint setting
 is now `PAYOUT_AGP_MINT` in `web/.env.local`.
 

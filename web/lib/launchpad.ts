@@ -1,8 +1,8 @@
 /**
  * The launchpad: a frontend over pump.fun's launch flow (docs/holder-agents.md,
  * Launchpad). A token launched here lives on pump.fun like any other; what
- * Agentic Games adds is agents for its holders, in the shared village, and its
- * creator fees sent to the two Agentic Games wallets.
+ * Agentic Game adds is agents for its holders, in the shared village, and its
+ * creator fees sent to the two Agentic Game wallets.
  *
  * Everything the pages need goes through the Launchpad interface below.
  * NEXT_PUBLIC_LAUNCHPAD_MODE=pump selects the wallet-signed mainnet adapter;

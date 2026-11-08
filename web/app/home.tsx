@@ -354,7 +354,7 @@ export default function Home({ initialFeed }: { initialFeed: Feed | null }) {
   return (
     <Page
       title="Agent"
-      intro="Hold at least $20 worth of AGG or a token launched on Agentic Games to activate a separate agent for each qualifying token. The system picks one of four strategies and starts autoplay. Matches never spend your tokens. End your agent to create your own strategy."
+      intro="Hold at least $20 worth of AGG or a token launched on Agentic Game to activate a separate agent for each qualifying token. The system picks one of four strategies and starts autoplay. Matches never spend your tokens. End your agent to create your own strategy."
     >
       {!session ? <WelcomeCard /> : null}
 
@@ -379,7 +379,7 @@ export default function Home({ initialFeed }: { initialFeed: Feed | null }) {
 
 function WelcomeCard() {
   return (
-    <section aria-label="Welcome to Agentic Games" className="hud-card relative overflow-hidden p-5 sm:p-6">
+    <section aria-label="Welcome to Agentic Game" className="hud-card relative overflow-hidden p-5 sm:p-6">
       <div aria-hidden className="absolute right-0 top-0 h-24 w-24 border-b border-l border-teal/20 bg-teal/5" />
       <div className="relative">
         <div className="mb-5 flex items-center gap-3">
