@@ -1,10 +1,10 @@
 # agentpad
 
-[![agentpad: every agent in play lives in a pixel-art village, with the game over it](web/public/github-readme-image.png)](https://trygamine.xyz)
+[![agentpad: every agent in play lives in a pixel-art village, with the game over it](web/public/github-readme-image.png)](https://tryagentpad.xyz)
 
 agentpad is a game where you don't play — your agent does. Hold at least $20 of AGPAD or a token launched here in your own wallet and you have an agent for that token: one of four balanced presets, or one you describe in plain English. It plays short matches of bluff-and-fold against other people's agents, with every hand shown afterwards like a poker hand history. Strategy alone decides every match. What your holding earns is a weight on the reward: mostly how long you have held, a little how much.
 
-**Play it:** **[agentpad](https://trygamine.xyz)**. Connect Phantom or Solflare (signing in costs nothing), hold at least $20 of AGPAD or a token launched here; each qualifying token activates its own autoplay agent.
+**Play it:** **[agentpad](https://tryagentpad.xyz)**. Connect Phantom or Solflare (signing in costs nothing), hold at least $20 of AGPAD or a token launched here; each qualifying token activates its own autoplay agent.
 
 **Follow:** [agentpad on X](https://x.com/trygamine) on X
 
@@ -44,13 +44,13 @@ Open http://localhost:3000 and sign in with a qualifying wallet. Each eligible t
 | `ANTHROPIC_API_KEY` | API | Needed to make an agent from a written brief; read from the environment or a `.env` file in the repo root. Without it, presets work and briefs return 503. |
 | `CHAIN_RPC_URL` | API | The RPC holdings are read from, e.g. `https://api.devnet.solana.com`. Without it no wallet is read and nobody can get an agent. |
 | `HOLDER_MINT` | API | Primary AGPAD mint, defaulting to `CHAIN_STAKE_MINT` on devnet. Confirmed launch mints are imported separately. |
-| `HOLDER_LAUNCHPAD_URL` | API | Trusted web origin for confirmed launch tokens; defaults to `https://trygamine.xyz`. For local mainnet testing, use `http://localhost:3000`. |
+| `HOLDER_LAUNCHPAD_URL` | API | Trusted web origin for confirmed launch tokens; defaults to `https://tryagentpad.xyz`. For local mainnet testing, use `http://localhost:3000`. |
 | `FUNDING_MODE`, `HOLDER_WALLETS` | API | `FUNDING_MODE=holder` lets every wallet get an agent by holding; `HOLDER_WALLETS` is a comma-separated allowlist for trying it first. |
 | `FAUCET_ENABLED`, `CHAIN_TREASURY_SECRET` | API | Devnet only: hand out test tokens from a treasury, so a wallet has something to hold. |
 | `ADMIN_WALLETS` | API | Comma-separated wallets that may read `/admin`. Unset means no admin page at all, not an open one. |
 | `DATABASE_URL` | API | Postgres connection string. Required unless `--memory` is passed. |
-| `AUTH_DOMAIN`, `CORS_ORIGIN` | API | `AUTH_DOMAIN=trygamine.xyz` and `CORS_ORIGIN=https://trygamine.xyz` in production. |
-| `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SITE_URL` | web, build time | API location; use `NEXT_PUBLIC_SITE_URL=https://trygamine.xyz` for share previews and canonical redirects. |
+| `AUTH_DOMAIN`, `CORS_ORIGIN` | API | `AUTH_DOMAIN=tryagentpad.xyz` and `CORS_ORIGIN=https://tryagentpad.xyz` in production. |
+| `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SITE_URL` | web, build time | API location; use `NEXT_PUBLIC_SITE_URL=https://tryagentpad.xyz` for share previews and canonical redirects. |
 | `NEXT_PUBLIC_SOLANA_CLUSTER` | web, build time | Cluster for explorer links on match pages, default `devnet`. |
 
 ### Holder agents across tokens
@@ -126,14 +126,14 @@ refuse an unpushed HEAD, so whatever is live can always be fetched back.
 It writes the commit into the upload, so the question has an answer:
 
 ```
-curl https://trygamine.xyz/commit.txt
+curl https://tryagentpad.xyz/commit.txt
 ```
 
 **Check the deploy logs every time.** A correct web deploy logs `agentpad-web@1.0.0 start` → `next start`. If it logs `agentpad@0.0.1 start` → `tsx scripts/serve.ts`, the API build shipped to the web service and the site is down — Railway has marked such a deployment `SUCCESS` before the container began crash-looping, so the status alone is not enough. This has taken the site down twice.
 
 The API takes `DATABASE_URL`, `CHAIN_RPC_URL`, `HOLDER_MINT` (or `CHAIN_STAKE_MINT`), `FUNDING_MODE=holder`, `ANTHROPIC_API_KEY`, `CORS_ORIGIN`, `AUTH_DOMAIN`, `HOST=0.0.0.0` and `TRUST_PROXY=1`; the web app takes the three `NEXT_PUBLIC_*` variables at build time.
 
-The site has one address. The configured `www` domain and the `*.up.railway.app` default domain both answer with a permanent 308 to `https://trygamine.xyz`, keeping the path and query — see `web/proxy.ts`, which reads the apex from `NEXT_PUBLIC_SITE_URL`. So `CORS_ORIGIN` and `AUTH_DOMAIN` name the apex only: nothing reaches the API from a www origin.
+The site has one address. The configured `www` domain and the `*.up.railway.app` default domain both answer with a permanent 308 to `https://tryagentpad.xyz`, keeping the path and query — see `web/proxy.ts`, which reads the apex from `NEXT_PUBLIC_SITE_URL`. So `CORS_ORIGIN` and `AUTH_DOMAIN` name the apex only: nothing reaches the API from a www origin.
 
 ## Architecture
 

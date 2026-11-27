@@ -18,11 +18,11 @@ import { distribute, feeWalletBalances, mainnet, type Distribution } from "./pum
  * network fee is a real part of what would be swept.
  */
 if (process.argv.includes("--help")) {
-  console.log("Usage: npm run pump:claim-all -- [--keypair /path/to/wallet.json --send] [--min-sol 0.001] [--site https://trygamine.xyz]\nEvery launched token except AGPAD. Without --send, reports and simulates only. Requires PUMP_RPC_URL (mainnet).");
+  console.log("Usage: npm run pump:claim-all -- [--keypair /path/to/wallet.json --send] [--min-sol 0.001] [--site https://tryagentpad.xyz]\nEvery launched token except AGPAD. Without --send, reports and simulates only. Requires PUMP_RPC_URL (mainnet).");
   process.exit(0);
 }
 const arg = (name: string) => { const i = process.argv.indexOf(name); return i >= 0 ? process.argv[i + 1] : undefined; };
-const site = (arg("--site") ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://trygamine.xyz").replace(/\/$/, "");
+const site = (arg("--site") ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://tryagentpad.xyz").replace(/\/$/, "");
 const file = resolve(import.meta.dirname, "../.data/launched-tokens.json");
 
 type Token = { mint: string; symbol: string; name: string; firstSeen: string };

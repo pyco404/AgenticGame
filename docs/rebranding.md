@@ -7,10 +7,10 @@ Existing engine rule identifiers, asset paths and configuration
 keys remain compatible with existing installations. The payout mint setting
 is now `PAYOUT_AGP_MINT` in `web/.env.local`.
 
-The website is **https://trygamine.xyz** and the X page is
-**https://x.com/trygamine**. Set `NEXT_PUBLIC_SITE_URL=https://trygamine.xyz`
-on the web service, `AUTH_DOMAIN=trygamine.xyz` and
-`CORS_ORIGIN=https://trygamine.xyz` on the API service. These deployment settings
+The website is **https://tryagentpad.xyz** and the X page is
+**https://x.com/trygamine**. Set `NEXT_PUBLIC_SITE_URL=https://tryagentpad.xyz`
+on the web service, `AUTH_DOMAIN=tryagentpad.xyz` and
+`CORS_ORIGIN=https://tryagentpad.xyz` on the API service. These deployment settings
 are not changed automatically by repository edits. Configure the API hostname
 through `NEXT_PUBLIC_API_URL`; do not assume an API subdomain exists.
 

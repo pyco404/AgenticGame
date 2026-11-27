@@ -52,7 +52,7 @@ AGPAD mint. Deployment's existing migration runner applies
 
 ## Confirmed launch catalog
 
-`HOLDER_LAUNCHPAD_URL` on the API defaults to `https://trygamine.xyz`. Set it to
+`HOLDER_LAUNCHPAD_URL` on the API defaults to `https://tryagentpad.xyz`. Set it to
 `http://localhost:3000` for local mainnet tests. The web route
 `/api/launchpad/holder-tokens` exposes paginated mint identity from confirmed
 launch records only, including archived launches; it is not a token-market listing.

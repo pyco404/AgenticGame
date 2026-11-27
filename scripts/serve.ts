@@ -142,7 +142,7 @@ if (rpc && mint) {
       ...(discoveryRpc && mode ? { discoveryRpc } : {}),
     });
     const catalog = mainnet ? await import("../src/db/holder-catalog.js").then(({ startHolderCatalog }) => startHolderCatalog(db, {
-      url: process.env["HOLDER_LAUNCHPAD_URL"] ?? "https://trygamine.xyz",
+      url: process.env["HOLDER_LAUNCHPAD_URL"] ?? "https://tryagentpad.xyz",
       primaryMint: mint,
       chainFor: (tokenMint) => rpcHoldings(connection, new PublicKey(tokenMint), {
         livePricing: true, tokenScoped: true, ...(discoveryRpc && mode ? { discoveryRpc } : {}),
