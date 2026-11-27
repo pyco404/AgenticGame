@@ -33,17 +33,17 @@ const link = "hover:text-text";
 /**
  * The footer: a small chip pinned to the bottom-right of the screen on every
  * page and every screen, like the village's hint at the bottom-left. Its
- * AGG link goes to the live token; the full note shows on hover.
+ * $AGPAD link goes to the live token; the full note shows on hover.
  */
 export function SiteFooter() {
   return (
     <footer
       className="rounded-panel flex h-8 items-center border border-hud-line bg-hud px-2.5 text-[12px] text-muted"
-      title={AGP_MINT ? `Agentic Game runs on Solana mainnet. AGG contract: ${AGP_MINT}` : "Agentic Game on Solana. AGG contract address coming soon."}
+      title={AGP_MINT ? `agentpad runs on Solana mainnet. $AGPAD contract: ${AGP_MINT}` : "agentpad on Solana. $AGPAD contract address coming soon."}
     >
       <p className="flex flex-wrap items-center justify-end gap-x-3">
         <span>Solana</span>
-        {AGP_MINT ? <a href={AGP_LINKS.pump} className={link} target="_blank" rel="noreferrer">AGG</a> : <span>AGG coming soon</span>}
+        {AGP_MINT ? <a href={AGP_LINKS.pump} className={link} target="_blank" rel="noreferrer">$AGPAD</a> : <span>$AGPAD coming soon</span>}
         {siteLinks.x ? <a href={siteLinks.x} className={link} target="_blank" rel="noreferrer">X</a> : null}
         <a href={siteLinks.repository} className={link} target="_blank" rel="noreferrer">Source</a>
         <a href={siteLinks.repository} className={link} target="_blank" rel="noreferrer">Security</a>

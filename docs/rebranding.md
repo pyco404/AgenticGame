@@ -1,8 +1,7 @@
-# Agentic Game and AGG
+# agentpad and AGPAD
 
-The display name is **Agentic Game**, the compact name is **AgenticGame**,
-and its planned token is **AGG**. Package names use `agenticgame` and
-`agenticgame-web`.
+The project name is **agentpad**, and its token ticker is **AGPAD** (displayed as **$AGPAD**). Package names use `agentpad` and
+`agentpad-web`.
 Application copy, metadata, wallet sign-in text and docs use the new branding.
 Existing engine rule identifiers, asset paths and configuration
 keys remain compatible with existing installations. The payout mint setting
@@ -31,5 +30,5 @@ fresh setup. Existing installations must set `POSTGRES_USER`, `POSTGRES_PASSWORD
 `DATABASE_URL` consistent, to reuse their database. No database or volume was
 modified by the branding edits.
 
-The local checkout is at `/home/pikoo/Desktop/agentic-games`;
+The local checkout is at `/home/pikoo/Desktop/agentpad `;
 renaming the project branding does not move the workspace or its database file.

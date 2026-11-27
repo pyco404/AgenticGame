@@ -76,10 +76,10 @@ describe("SOL reward payout planning (no swaps or payments)", () => {
   });
 });
 
-describe("held AGG payout planning (no swap)", () => {
+describe("held AGPAD payout planning (no swap)", () => {
   const held = (budgetAgp: string, recipients = winners, rewardPercent = "90") =>
     buildHeldPayoutPlan({ kind: "daily", period: "2026-10-04", budgetAgp, rewardPercent }, 6, recipients, "daily", "platform", "admin");
-  it("pays AGG base units from the wallet in one batch, retaining the rest as AGG", () => {
+  it("pays AGPAD base units from the wallet in one batch, retaining the rest as AGPAD", () => {
     const result = held("1,000,000");
     expect(result.funding).toBe("held"); expect(result.decimals).toBe(6);
     expect(result.budgetLamports).toBe("1000000000000");

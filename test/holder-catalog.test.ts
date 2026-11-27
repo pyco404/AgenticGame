@@ -18,7 +18,7 @@ describe("trusted confirmed launch catalog", () => {
      expect(url.origin).toBe("https://trygamine.xyz");
      expect(url.pathname).toBe("/api/launchpad/holder-tokens");
      return Response.json({ network: "mainnet-beta", tokens: [
-       { mint: primaryMint, name: "AGP", symbol: "AGP" },
+       { mint: primaryMint, name: "AGPAD", symbol: "AGPAD" },
        { mint: launchedMint, name: "Launch", symbol: "NEW" },
      ], nextOffset: null });
    });

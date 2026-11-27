@@ -2,12 +2,12 @@ import Link from "next/link";
 import { CopyButton } from "@/app/copy-button";
 import { AGP_LINKS, AGP_MINT } from "@/lib/agp";
 
-/** AGG's contract address, copyable, with where to trade and verify it. */
+/** $AGPAD's contract address, copyable, with where to trade and verify it. */
 export function AgpCard() {
-  if (!AGP_MINT) return <p className="hud-card px-4 py-3 text-[13px] text-muted">AGG contract address coming soon.</p>;
+  if (!AGP_MINT) return <p className="hud-card px-4 py-3 text-[13px] text-muted">$AGPAD contract address coming soon.</p>;
   return (
-    <section className="hud-card px-4 py-3 text-[13px] leading-5" aria-label="AGG contract address">
-      <p className="text-[12px] uppercase tracking-wider text-accent">AGG is live</p>
+    <section className="hud-card px-4 py-3 text-[13px] leading-5" aria-label="$AGPAD contract address">
+      <p className="text-[12px] uppercase tracking-wider text-accent">$AGPAD is live</p>
       <p className="mt-1 text-muted">Contract address (Solana mainnet)</p>
       <p className="mt-1 break-all font-mono text-[12px] text-text">{AGP_MINT}</p>
       <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">

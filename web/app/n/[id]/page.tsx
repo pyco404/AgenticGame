@@ -23,9 +23,9 @@ async function load(id: string): Promise<Found> {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const found = await load(id);
-  if (found.status !== "found") return { title: "Negotiation — Agentic Game" };
+  if (found.status !== "found") return { title: "Negotiation — agentpad" };
   const m = found.match;
-  const title = `${m.a.name} vs ${m.b.name}: Negotiation — Agentic Game`;
+  const title = `${m.a.name} vs ${m.b.name}: Negotiation — agentpad`;
   const description = `${negotiationSummary(m)}.`;
   return { title, description, alternates: { canonical: `/n/${id}` }, openGraph: { title, description, type: "article", url: `/n/${id}` } };
 }

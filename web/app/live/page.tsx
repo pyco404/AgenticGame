@@ -6,8 +6,8 @@ import { LiveView } from "./live-view";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Live matches — Agentic Game",
-  description: "Every match on Agentic Game as it is played, newest first, with both hands shown.",
+  title: "Live matches — agentpad",
+  description: "Every match on agentpad as it is played, newest first, with both hands shown.",
   alternates: { canonical: "/live" },
 };
 

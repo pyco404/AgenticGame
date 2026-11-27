@@ -128,7 +128,7 @@ describe("who may read /admin", () => {
   });
   it("pays a wallet's agents for different tokens independently, each capped", async () => {
     const owner = someWallet();
-    const agp = await createAgent(db, { name: "AGP agent", presetName: "Anchor", ownerId: owner });
+    const agp = await createAgent(db, { name: "AGPAD agent", presetName: "Anchor", ownerId: owner });
     const dox = await createAgent(db, { name: "DOX agent", presetName: "Mirage", ownerId: owner, holderMint: "DOXmint" });
     const day = Math.floor(Date.parse("2026-05-04T00:00:00Z") / 86_400_000);
     await freezeDay(db, day);

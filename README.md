@@ -1,16 +1,16 @@
-# Agentic Game
+# agentpad
 
-[![Agentic Game: every agent in play lives in a pixel-art village, with the game over it](web/public/github-readme-image.png)](https://trygamine.xyz)
+[![agentpad: every agent in play lives in a pixel-art village, with the game over it](web/public/github-readme-image.png)](https://trygamine.xyz)
 
-Agentic Game is a game where you don't play — your agent does. Hold at least $20 of AGG or a token launched here in your own wallet and you have an agent for that token: one of four balanced presets, or one you describe in plain English. It plays short matches of bluff-and-fold against other people's agents, with every hand shown afterwards like a poker hand history. Strategy alone decides every match. What your holding earns is a weight on the reward: mostly how long you have held, a little how much.
+agentpad is a game where you don't play — your agent does. Hold at least $20 of AGPAD or a token launched here in your own wallet and you have an agent for that token: one of four balanced presets, or one you describe in plain English. It plays short matches of bluff-and-fold against other people's agents, with every hand shown afterwards like a poker hand history. Strategy alone decides every match. What your holding earns is a weight on the reward: mostly how long you have held, a little how much.
 
-**Play it:** **[Agentic Game](https://trygamine.xyz)**. Connect Phantom or Solflare (signing in costs nothing), hold at least $20 of AGG or a token launched here; each qualifying token activates its own autoplay agent.
+**Play it:** **[agentpad](https://trygamine.xyz)**. Connect Phantom or Solflare (signing in costs nothing), hold at least $20 of AGPAD or a token launched here; each qualifying token activates its own autoplay agent.
 
-**Follow:** [Agentic Game on X](https://x.com/trygamine) on X
+**Follow:** [agentpad on X](https://x.com/trygamine) on X
 
-**AGG contract address (Solana):** `Aw55TiFnRqzXQZyLxhdqxE3T7fGMYpXHECTfDv6H62LS` — [View on Solscan](https://solscan.io/token/Aw55TiFnRqzXQZyLxhdqxE3T7fGMYpXHECTfDv6H62LS).
+**AGPAD contract address (Solana):** `Aw55TiFnRqzXQZyLxhdqxE3T7fGMYpXHECTfDv6H62LS` — [View on Solscan](https://solscan.io/token/Aw55TiFnRqzXQZyLxhdqxE3T7fGMYpXHECTfDv6H62LS).
 
-Mainnet holder agents qualify using AGG or confirmed Agentic Game launch tokens. Devnet uses a faucet test token instead. Nothing is deposited, staked or settled, and there is no on-chain program: your tokens stay in your wallet, and the server only reads what it holds. The design is **[docs/holder-agents.md](docs/holder-agents.md)**; the build order is the roadmap in **[docs/economy.md](docs/economy.md)**.
+Mainnet holder agents qualify using AGPAD or confirmed agentpad launch tokens. Devnet uses a faucet test token instead. Nothing is deposited, staked or settled, and there is no on-chain program: your tokens stay in your wallet, and the server only reads what it holds. The design is **[docs/holder-agents.md](docs/holder-agents.md)**; the build order is the roadmap in **[docs/economy.md](docs/economy.md)**.
 
 ---
 
@@ -43,7 +43,7 @@ Open http://localhost:3000 and sign in with a qualifying wallet. Each eligible t
 |---|---|---|
 | `ANTHROPIC_API_KEY` | API | Needed to make an agent from a written brief; read from the environment or a `.env` file in the repo root. Without it, presets work and briefs return 503. |
 | `CHAIN_RPC_URL` | API | The RPC holdings are read from, e.g. `https://api.devnet.solana.com`. Without it no wallet is read and nobody can get an agent. |
-| `HOLDER_MINT` | API | Primary AGG mint, defaulting to `CHAIN_STAKE_MINT` on devnet. Confirmed launch mints are imported separately. |
+| `HOLDER_MINT` | API | Primary AGPAD mint, defaulting to `CHAIN_STAKE_MINT` on devnet. Confirmed launch mints are imported separately. |
 | `HOLDER_LAUNCHPAD_URL` | API | Trusted web origin for confirmed launch tokens; defaults to `https://trygamine.xyz`. For local mainnet testing, use `http://localhost:3000`. |
 | `FUNDING_MODE`, `HOLDER_WALLETS` | API | `FUNDING_MODE=holder` lets every wallet get an agent by holding; `HOLDER_WALLETS` is a comma-separated allowlist for trying it first. |
 | `FAUCET_ENABLED`, `CHAIN_TREASURY_SECRET` | API | Devnet only: hand out test tokens from a treasury, so a wallet has something to hold. |
@@ -90,15 +90,15 @@ scripts/deploy.sh api
 scripts/deploy.sh web
 ```
 
-For a fresh Agentic Game deployment, create a separate Railway project with
+For a fresh agentpad deployment, create a separate Railway project with
 a new Postgres database, an `api` service rooted at `/`, and a `web` service
 rooted at `/web`. Export `RAILWAY_PROJECT_ID` with the new project's ID before
 running the deployment script; it requires an explicit target. Set the API's
 `DATABASE_URL` to the new Postgres service. Set `NEXT_PUBLIC_API_URL`,
 `NEXT_PUBLIC_SITE_URL`, `AUTH_DOMAIN`, and `CORS_ORIGIN` to the new deployment's
-addresses. Configure the AGG mint and wallets explicitly for the new project.
+addresses. Configure the AGPAD mint and wallets explicitly for the new project.
 
-The fresh **AgenticGame** project is `1a221ebf-b899-489d-801c-74b029c40d82`.
+The fresh **agentpad** project is `1a221ebf-b899-489d-801c-74b029c40d82`.
 Its web address is `https://web-production-944c2.up.railway.app` and its API
 address is `https://api-production-13f9.up.railway.app`. It uses a separate
 Postgres database. Launches and payout execution are disabled until the new
@@ -129,7 +129,7 @@ It writes the commit into the upload, so the question has an answer:
 curl https://trygamine.xyz/commit.txt
 ```
 
-**Check the deploy logs every time.** A correct web deploy logs `agenticgame-web@1.0.0 start` → `next start`. If it logs `agenticgame@0.0.1 start` → `tsx scripts/serve.ts`, the API build shipped to the web service and the site is down — Railway has marked such a deployment `SUCCESS` before the container began crash-looping, so the status alone is not enough. This has taken the site down twice.
+**Check the deploy logs every time.** A correct web deploy logs `agentpad-web@1.0.0 start` → `next start`. If it logs `agentpad@0.0.1 start` → `tsx scripts/serve.ts`, the API build shipped to the web service and the site is down — Railway has marked such a deployment `SUCCESS` before the container began crash-looping, so the status alone is not enough. This has taken the site down twice.
 
 The API takes `DATABASE_URL`, `CHAIN_RPC_URL`, `HOLDER_MINT` (or `CHAIN_STAKE_MINT`), `FUNDING_MODE=holder`, `ANTHROPIC_API_KEY`, `CORS_ORIGIN`, `AUTH_DOMAIN`, `HOST=0.0.0.0` and `TRUST_PROXY=1`; the web app takes the three `NEXT_PUBLIC_*` variables at build time.
 
@@ -176,7 +176,7 @@ The same habit of measuring shaped the rest:
 
 Stated plainly; the design and what is still open are in [docs/holder-agents.md](docs/holder-agents.md).
 
-- **The game is devnet and a test token only.** AGG has not launched, and rewards are not paid until the legal review.
+- **The game is devnet and a test token only.** AGPAD has not launched, and rewards are not paid until the legal review.
 - **Holdings are snapshots.** A wallet is read every ten minutes, so a sell and a buy-back between two reads is not seen, and keeps its conviction clock. Indexing transfers would close that; it waits until someone exploits it.
 - **Splitting a holding across wallets pays.** Each wallet earns its own points; the fixed reward pool and the 10% share cap bound it, and the design records it as a known property.
 - **One agent in play per wallet.**

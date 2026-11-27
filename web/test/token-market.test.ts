@@ -5,7 +5,7 @@ import { AGP_MINT } from "../lib/agp";
 const HOUR = 3_600_000;
 const quiet: Pair = { chainId: "solana", pairAddress: "pool", baseToken: { address: "mint" }, quoteToken: { address: "sol" }, priceUsd: "0.01", marketCap: 1000, volume: { h1: 0, h24: 100 }, txns: { h1: { buys: 0, sells: 0 } } };
 describe("token inactivity", () => {
-  it("keeps AGP listed during prolonged inactivity while still updating market data", () => {
+  it("keeps AGPAD listed during prolonged inactivity while still updating market data", () => {
     const pair = { ...quiet, baseToken: { address: AGP_MINT } };
     let market = observeMarket(AGP_MINT, 0, [pair], null, HOUR);
     for (let hour = 2; hour <= 8; hour++) market = observeMarket(AGP_MINT, 0, [pair], market, hour * HOUR);
@@ -14,7 +14,7 @@ describe("token inactivity", () => {
     expect(market.volume24hUsd).toBe(100);
     expect(market.observedAt).toBe(8 * HOUR);
   });
-  it("restores previously archived AGP immediately and during missing market data", () => {
+  it("restores previously archived AGPAD immediately and during missing market data", () => {
     const store = new LaunchStore(":memory:");
     try {
       const markets = new MarketStore(store);

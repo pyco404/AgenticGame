@@ -1,4 +1,4 @@
-# Agentic Game asset consistency review
+# agentpad asset consistency review
 
 Implemented 12 October 2026; committed, not yet deployed.
 

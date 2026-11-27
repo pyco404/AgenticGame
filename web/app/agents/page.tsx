@@ -3,7 +3,7 @@ import Home from "@/app/home";
 import { API, type Feed } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "Get an agent — Agentic Game",
+  title: "Get an agent — agentpad",
   description: "Get an agent, choose its strategy and manage the agents you have.",
   alternates: { canonical: "/agents" },
 };
