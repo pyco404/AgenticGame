@@ -8,6 +8,9 @@ export default defineConfig({
     // takes about two seconds; with the whole suite running in parallel it can
     // pass the default five, which failed runs on a timeout rather than a bug.
     testTimeout: 20_000,
+    // beforeAll hooks do the same work - connect and migrate - so they get the
+    // same allowance instead of the default ten seconds.
+    hookTimeout: 20_000,
     // Each test file runs its own PGlite, which is a whole Postgres compiled to
     // wasm and costs real memory. Unbounded, one worker per file is enough to
     // have the suite killed outright - exit 137, no failing test, nothing to
