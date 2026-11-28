@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { apart, BARE_MS, duelPhase, LINGER_MS, meetingSpot, pathSpots, RING_CAP, ringsInFull } from "../web/app/village/game/duels.js";
 import { nearRoad, ROADS } from "../web/app/village/game/town.js";
@@ -21,7 +22,7 @@ function sources(dir: string): string[] {
 
 describe("matches where agents meet", () => {
   it("is presentation only: nothing the server runs - matchmaker, runner, scoring, ledger - imports the village", () => {
-    const root = new URL("../src", import.meta.url).pathname;
+    const root = fileURLToPath(new URL("../src", import.meta.url));
     for (const file of sources(root)) {
       const text = readFileSync(file, "utf8");
       expect(text, file).not.toMatch(/from\s+["'][^"']*(village|web\/app)[^"']*["']/);
